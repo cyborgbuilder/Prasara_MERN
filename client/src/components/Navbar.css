@@ -1,0 +1,131 @@
+:root {
+	--mainColor: #fff;
+	--mainColorLight: #5767aa;
+	--secondaryColor: #011085;
+	--textColor: black;
+}
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 11vh;
+    width: 100%;
+	padding: 0 1rem;
+	background: #fff;
+	color: var(--textColor);
+	position: fixed;
+	top: 0;
+	z-index: 1000;
+	
+}
+
+header img{
+	width: 5.5%;
+	height: 100%;
+}
+
+header .conButton{
+	font-size: 18px;
+	color: #fff;
+	margin-left: 1.4rem;
+	letter-spacing: 1.2px;
+	outline: none;
+	padding: 8px 11px;
+	background-color: var(--sec);
+	border: 1.5px solid var(--sec);
+	border-radius: 5px;
+	transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
+header .conButton:hover{
+	scale: 1.05;
+	cursor: pointer;
+}
+.nav_white{
+	background-color: var(--mainColor);
+	opacity: 1;
+}
+
+nav a {
+	margin-left: 1rem;
+	font-size: 22px;
+	color: var(--textColor);
+	text-decoration: none;
+    list-style-type: none;
+	letter-spacing: 1.2px;
+}
+
+
+
+nav a:hover {
+	color: var(--sec);
+}
+
+header .nav-btn {
+	padding: 5px;
+	cursor: pointer;
+	background: transparent;
+	border: none;
+	outline: none;
+	color: var(--textColor);
+	visibility: hidden;
+	opacity: 0;
+	font-size: 1.8rem;
+}
+span{
+	display: none;
+}
+header div,
+nav {
+	display: flex;
+	align-items: center;
+}
+
+@media only screen and (max-width: 1200px) {
+	header .nav-btn {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	header nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1.5rem;
+		background-color: var(--mainColor);
+		transition: 1s;
+		transform: translateY(-100vh);
+	}
+
+	span{
+		display: inline;
+	}
+
+
+	
+
+	header .responsive_nav {
+		transform: none;
+	}
+
+	nav .nav-close-btn {
+		position: absolute;
+		top: 2rem;
+		right: 2rem;
+	}
+
+	nav a {
+		font-size: 1.5rem;
+	}
+	header img{
+		width: 15%;
+		height: 100%;
+	}
+}
