@@ -4,8 +4,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const Feedback = require('./models/Feedback.js');
 const FeedbackRoutes = require('./routes/FeedbackRoutes.js');
-const BlogRoutes = require('./routes/BlogRoutes.js')
-const userRoutes = require('./routes/UserRoutes.js')
+const BlogRoutes = require('./routes/BlogRoutes.js');
+const userRoutes = require('./routes/UserRoutes.js');
+const orderRoutes = require('./routes/OrderRoutes.js')
 
 dotenv.config();
 
@@ -30,6 +31,8 @@ app.use('/blog', BlogRoutes);
 app.use('/blog', BlogRoutes);
 
 app.use('/user', userRoutes);
+
+app.use('/order', orderRoutes);
 
 
 

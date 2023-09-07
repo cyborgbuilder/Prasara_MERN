@@ -16,9 +16,11 @@ information you need.</p>
             <button className="button-89" >Contact us</button>
         </Left>
         <Right>
+            {/* <img src='./cnnect.png' /> */}
             <img src='https://static.vecteezy.com/packs/media/components/pricing/pricing-main/img/pricing-hero-800px-b8810bc733a9898472effdd5fe2bc606.jpg' />
         </Right>
-      </Wrap>
+
+        </Wrap>
     </Container>
   )
 }
@@ -32,10 +34,11 @@ const Container = styled.div`
     justify-content: center;
 `
 const Wrap = styled.div`
-    width: 95%;
+    width: 100%;
     height: 100%;
     display: flex;
     border: 1px solid white;
+    padding-left: 20px;
 
     @media only screen and (max-width: 1200px){
         flex-direction: column;
@@ -46,6 +49,7 @@ const Left = styled.div`
     width: 70%;
     padding-right: 240px;
     padding-top: 20px;
+
 
     @media only screen and (max-width: 1200px){
         width: 100%;

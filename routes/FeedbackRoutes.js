@@ -2,41 +2,46 @@ const express = require('express');
 const Feedback = require('../models/Feedback.js'); 
 const router = express.Router();
 
- router.get("/", (req, res) => {
-     Feedback.find()
-       .then((data) => {
-          res.status(200).send(data)
-       })
-       .catch((err) => {
-         res.status(500).send(err)
-       })
-   });
+  router.get("/", (req, res) => {
+      Feedback.find()
+        .then((data) => {
+           res.status(200).send(data)
+        })
+        .catch((err) => {
+          res.status(500).send(err)
+        })
+    });
 
-//  router.get('/', async (req, res) => {
-//    try {
-//      const images = await Feedback.find({});
-//      const imageInfo = images.map((image) => ({
-//        name: image.name,
-//        imageUrl: `/uploads/${image.image.data}`,
-//      }));
-//      res.json(imageInfo);
-//    } catch (err) {
-//      console.log(err);
-//      res.status(500).json({ error: 'Error fetching images' });
-//    }
-//  });
+// router.get("/", async (req, res) => {
+//   try {
+//     const feedback = await Feedback.find({})
+//       .populate('userId', 'username') // Populate the 'userId' field with 'username'
+//       .select('-userId.password'); // Exclude password field
+  
+//     res.status(200).json(feedback);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Error fetching feedback' });
+//   }
+// });
 
-  router.post('/', (req, res) => {
-    const dbFeedback = req.body;
+   router.post('/', (req, res) => {
+    const { username, text, userId } = req.body;
+  
+    const dbFeedback = {
+      username: username,
+      text: text,
+      userId: userId, // Include the user ID
+      timestamp: Date.now(), // You might want to use the correct spelling here
+    };
   
     Feedback.create(dbFeedback)
       .then((data) => {
-        res.status(201).send(data)
+        res.status(201).send(data);
       })
       .catch((err) => {
-        res.status(500).send(err)
-      })
-    });
+        res.status(500).send(err);
+      });
+  });
 
     router.delete("/:id", async (req, res) => {
         try {

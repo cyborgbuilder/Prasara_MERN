@@ -23,7 +23,7 @@ success, we have achieved numerous accolades
 that reflect our commitment to excellence.</p>
            
            </Header>
-           {/* <Awards>
+           <Awards>
            <Slot>
                 
                 <Down>
@@ -85,84 +85,83 @@ that reflect our commitment to excellence.</p>
             <Slot>
                 
                 <Down>
-                    <h1>“Wayamba Wijayabhimani” Best Enterprise Award<br>(2014)</br></h1>
+                    <h1>“Wayamba Wijayabhimani” Best Enterprise Award<br></br>(2014)</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Thambapanni Abimani Award<br>(2018)</br></h1>
+                    <h1>Thambapanni Abimani Award Hall of Fame<br></br>(2018)</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Industrial Safety Award</h1>
-                    <p>Runners Up</p>
+                    <h1>National Business Excellence Award (2007) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>National Productive Award</h1>
-                    <p>2nd Place</p>
+                    <h1>Industrial Safety Award (2008) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>National Productive Award</h1>
-                    <p>2nd Place</p>
+                    <h1>National Productive Award(2006) <br></br> Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Provincial Productivity Award</h1>
-                    <p>2nd Place</p>
+                    <h1>Provincial Productivity Award(2006) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Takai Akimoto 5s</h1>
-                    <p>Merit Award</p>
+                    <h1>Sri Lanka Entrepreneur of the Year (2000)<br></br>(Provincial Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>National Safety Award for the safest workplace</h1>
-                    <p>Merit Award</p>
+                    <h1>Sri Lanka Entrepreneur of the Year (2001)<br></br>(National Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Sri Lanka Entrepreneur of the Year (Provincial Award)</h1>
-                    <p>Silver category</p>
+                    <h1>Sri Lanka Entrepreneur of the Year (2001)<br></br> (Provincial Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
                 
                 <Down>
-                    <h1>Sri Lanka Entrepreneur of the Year (Provincial Award)</h1>
-                    <p>Silver category</p>
+                    <h1>National Safety Award for the safest work place Merit Award (2006)</h1>
+                </Down>
+            </Slot>
+
+            <Slot>
+                
+                <Down>
+                    <h1>Takai Akimoto 5s Merit Award (2003) </h1>
                 </Down>
             </Slot>
 
             <Slot>
                 <Upper>
-                    <img className='logo_38' src='https://www.pngall.com/wp-content/uploads/5/Trophy-Award-PNG-Picture.png' />
+                    {/* <img className='logo_38' src='./award.png' /> */}
                 </Upper>
                 <Down>
                     <h1>Takai Akimoto 5s</h1>
@@ -171,7 +170,7 @@ that reflect our commitment to excellence.</p>
             </Slot>
 
           
-           </Awards> */}
+           </Awards>
 
 
             <Video>
@@ -290,7 +289,7 @@ flex-direction: column;
 justify-content: flex-end;
 
   align-items: center;
-background: url("https://www.pngall.com/wp-content/uploads/5/Trophy-Award-PNG-Picture.png");
+
 
 background-size: cover;
 

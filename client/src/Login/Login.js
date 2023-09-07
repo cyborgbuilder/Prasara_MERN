@@ -3,7 +3,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-function Contact() {
+function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
@@ -15,13 +15,38 @@ function Contact() {
         password,
       });
 
+      
+
+      const secretKey = 'npHlCV9tNXxy8svZACnjxA0kEAcRcJ8z'; 
       const token = response.data.token;
+
+      const userResponse = await axios.get('http://localhost:9000/user/', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+      const isAdmin = response.data.isAdmin;
+      const isOwner = response.data.isOwner;
+      const users = userResponse.data; 
+      const user = users.find((u) => u.username === username);
+
       localStorage.setItem('token', token);
+      localStorage.setItem('isAdmin', isAdmin);
+      localStorage.setItem('isOwner', isOwner);
+      localStorage.setItem('userId', user._id);
+
+      
       console.log('Login successful');
 
-      // Reload the page and set location to the home page
+      
+
+    
+
+    
+      
       window.location.reload();
-      window.location.href = '/'; // Set the page location to the home page
+      window.location.href = '/';
     } catch (error) {
       setError('Invalid username or password');
       console.error('Error logging in:', error);
@@ -33,7 +58,7 @@ function Contact() {
     <Container>
       <Head>
         <div></div>
-        <img src='./contact.png' alt="Contact" />
+        {/* <img src='./contact.png' alt="Contact" /> */}
       </Head>
       <Body>
         <Wrap>
@@ -57,7 +82,7 @@ function Contact() {
             <Button onClick={handleLogin}>Login</Button>
           </InputContainer>
 
-          <Link to='/signup'><a >Login</a></Link>
+          <Link to='/signup'><a >Register</a></Link>
         </Wrap>
       </Body>
     </Container>
@@ -140,4 +165,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default Contact;
+export default Login;

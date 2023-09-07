@@ -15,6 +15,10 @@ import Posts from './Blog/Posts';
 import Post from './Blog/Post';
 import Login from './Login/Login.js';
 import Registration from './Login/Registration';
+import Dashboard from './Dashboard/Dashboard'
+import Order from './Order/Order'
+import OrderDetails from './Order/OrderDetails';
+import OrderDetailsUser from './Order/OrderDetailsUser';
 function App() {
  
   return (
@@ -35,6 +39,10 @@ function App() {
           <Route path="/blog/:postId" element={<Post />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Registration />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/order/:id" element={<OrderDetails />} />
+          <Route path="/orderUser/:id" element={<OrderDetailsUser />} />
         </Routes>
         <Footer />
         

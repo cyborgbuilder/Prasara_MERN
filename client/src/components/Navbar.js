@@ -7,8 +7,20 @@ import Logout from '../Login/Logout';
 function Navbar() {
   const navRef = useRef();
 
-  // Check if the user is logged in and update loggedIn state accordingly
   const isLoggedIn = !!localStorage.getItem('token');
+  let isAdmin = false;
+  let isOwner = false;
+
+  if (isLoggedIn) {
+    const token = localStorage.getItem('token');
+    try {
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      isAdmin = decodedToken.isAdmin;
+      isOwner = decodedToken.isOwner;
+    } catch (error) {
+      console.error('Error parsing token:', error);
+    }
+  }
 
   const showNavbar = () => {
     navRef.current.classList.toggle('responsive_nav');
@@ -38,12 +50,16 @@ function Navbar() {
           <Link to="/brands">Brands</Link>
           <Link to="/about">About Us</Link>
           <Link to="/sustainability">Sustainability</Link>
-          {isLoggedIn && <Link to="/blog">Blog</Link>}
+          <Link to="/blog">Blog</Link>
+          {/* {isLoggedIn && <Link to="/order">Blog</Link>} */}
+          {isAdmin && <Link to="/dashboard">Dashboard</Link>}
+          {isOwner && <Link to="/dashboard">Dashboard</Link>}
           {isLoggedIn ? (
             <Logout /> // Show Logout button when logged in
           ) : (
             <Link to="/login">Login</Link>
           )}
+          {isLoggedIn && !isAdmin && !isOwner && <Link to='/order'><button className="button-89">Make Order</button></Link>}
           <Link to="/contact">
             <button className="button-89">Contact Us</button>
           </Link>

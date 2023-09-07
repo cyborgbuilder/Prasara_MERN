@@ -32,19 +32,19 @@ router.post("/", (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-      // Fetch all images from the ImageModel collection
+
       const images = await ImageModel.find({});
   
-      // Map the images to a new array containing image details including _id
+    
       const imageInfo = images.map((image) => ({
-        _id: image._id, // Include the _id field
+        _id: image._id, 
         username: image.username,
         title: image.title,
         content: image.content,
         imageUrl: `/uploads/${image.image.data}`,
       }));
   
-      // Send the array of image details as the response
+
       res.json(imageInfo);
     } catch (err) {
       console.log(err);

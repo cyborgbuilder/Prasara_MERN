@@ -46,14 +46,35 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // Generate JWT token
-    const token = jwt.sign({ userId: user._id }, 'your-secret-key');
+    let isAdmin = false;
+    let isOwner = false;
+    let isLoggedIn = false;
 
-    res.json({ token });
+    if (username === 'admin' && password === 'admin123') {
+      isAdmin = true;
+    } else if (username === 'owner' && password === 'owner123') {
+      isOwner = true;
+    } else {
+      isLoggedIn = true;
+    }
+
+    const token = jwt.sign(
+      { userId: user._id, isAdmin, isOwner, isLoggedIn, username },
+      process.env.JWT_SECRET_KEY
+    );
+
+    res.json({
+      token,
+      isAdmin,
+      isOwner,
+      username,
+      user 
+    });
   } catch (error) {
     res.status(500).json({ error: 'Error logging in' });
   }
 });
+
 
 router.get('/', async (req, res) => {
     try {
@@ -62,6 +83,19 @@ router.get('/', async (req, res) => {
       res.status(200).json(users);
     } catch (error) {
       res.status(500).json({ error: 'Error fetching users' });
+    }
+  });
+
+  router.delete("/:id", async (req, res) => {
+    try {
+      const result = await User.findByIdAndDelete(req.params.id);
+      if (!result) {
+        return res.status(404).send("item not found");
+      }
+      res.json(result);
+    } catch (err) {
+      console.log(err);
+      res.status(500).send(err);
     }
   });
 

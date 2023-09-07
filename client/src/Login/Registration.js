@@ -55,7 +55,7 @@ function Contact() {
     <Container>
       <Head>
         <div></div>
-        <img src='./contact.png' alt="Contact" />
+        {/* <img src='./contact.png' alt="Contact" /> */}
       </Head>
       <Body>
         <Wrap>
@@ -104,7 +104,7 @@ function Contact() {
             <Button onClick={handleRegister}>Register</Button>
           </InputContainer>
 
-          <Link to='/signup'><a>Login</a></Link>
+          <Link to='/login'><a>Login</a></Link>
         </Wrap>
       </Body>
     </Container>

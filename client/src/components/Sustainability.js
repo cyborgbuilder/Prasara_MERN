@@ -106,6 +106,158 @@ installed and put into operation the following,</p>
                   </Down>
                 </Box>
               </Boxes>
+
+              <Slot>
+
+              <Left_Two>
+              <img src='./human.jpg' />
+            </Left_Two>
+            
+            <Right>
+              <h2>Empower Our Human Resources</h2>
+              <p>Blissful, healthy, content workforce yields
+maximum productivity. To achieve this
+objective, we have initiated the following,</p> 
+              
+            </Right>
+
+            
+            
+           </Slot>
+
+
+           <Boxes>
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Higher studies opportunities for prospective employees</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Free (meals, uniforms, safety gear and transport) for the workforce</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>In-house free medical facilities (Doctor and Nurse)</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Financial incentives during periods of economic hardships</p>
+                  </Down>
+                </Box>
+
+              
+              </Boxes>
+
+
+              <Slot>
+            
+            <Right>
+              <h2>Support Communities</h2>
+              <p>We firmly believe that community plays an
+integral part in the context of holistic
+development. With this in mind, we have
+initiated several Corporate social
+responsibility exercises to enrich the
+livelihood of various communities. In this
+context, we have launched several CSR actives
+such as</p> 
+              
+            </Right>
+            <Left_Three>
+              <img src='./support.jpg' />
+            </Left_Three>
+           </Slot>
+
+           <Boxes>
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Donate books for children of the workforce</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Donations for local schools (Dankotuwa Balika girls school, Dhammisara College Nattandiya etc)</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Donations for universities (University of Ruhuna)</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Donations for clubs and societies (HELPAGE,United sports club, Asiri Uyana Grama Sanwardana Samithiya)</p>
+                  </Down>
+                </Box>
+
+                <Box>
+                  <Up>
+                    <img src='./mirror.png' />
+                  </Up>
+                  <Down>
+                    <p>Donations for places of religious worship</p>
+                  </Down>
+                </Box>
+
+
+              
+              </Boxes>
+
+              <Slot>
+
+              <Left_Four>
+              <img src='./gov.jpg' />
+            </Left_Four>
+            
+            <Right>
+              <h2>Cooperate governance initiatives</h2>
+              <p>In the process of making right choices,
+adherence and compliance to existing good
+governance is imperative. This promotes
+healthier, fairer and habitable communities
+with traits such as equality and access to
+universal human rights. We endeavour to
+always abide by stipulated rules and
+regulations to achieve long term
+sustainability.</p> 
+              
+            </Right>
+            
+           </Slot>
+
             
         </Wrap>
       </Body>
@@ -198,18 +350,24 @@ const Slot = styled.div`
   display: flex;
   background-size: cover;
   margin-top: 80px;
+  
 
   @media only screen and (max-width: 1200px){
     flex-direction: column;
     width: 100%;
-    height: 500px;
-}
+    height: 600px;
+    border-radius: 15px;
+    margin: 30px 0;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px 10px;
+  border: 1px solid var(--sec);
+  }
 
 
 `
 
 const Left = styled.div`
-  width: 45%;
+  width: 40%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -219,7 +377,7 @@ const Left = styled.div`
   @media only screen and (max-width: 1200px){
     width: 100%;
     height: 400px;
-    background: url("./coverse2.jpg");
+    background: url("./converse2.jpg");
     background-size: cover;
       
 }
@@ -238,8 +396,101 @@ const Left = styled.div`
 
 `
 
+const Left_Two = styled.div`
+width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  @media only screen and (max-width: 1200px){
+    width: 100%;
+    height: 400px;
+    background: url("./human.jpg");
+    background-size: cover;
+      
+}
+
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 0 0 50%;
+
+    @media only screen and (max-width: 1200px){
+      border-radius: 0;
+      display: none;
+      
+  }
+  }
+
+`
+const Left_Four = styled.div`
+width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  @media only screen and (max-width: 1200px){
+    width: 100%;
+    height: 400px;
+    background: url("./gov2.jpg");
+    background-size: cover;
+      
+}
+
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 0 0 50%;
+
+    @media only screen and (max-width: 1200px){
+      border-radius: 0;
+      display: none;
+      
+  }
+  }
+
+`
+
+const Left_Three = styled(Left)`
+  
+
+width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+
+  @media only screen and (max-width: 1200px){
+    width: 100%;
+    height: 400px;
+    background: url("./support2.jpg");
+    background-size: cover;
+      
+}
+
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 0 50% 50% 0;
+
+    @media only screen and (max-width: 1200px){
+      border-radius: 0;
+      display: none;
+      
+  }
+  }
+
+
+ 
+`
+
 const Right = styled.div`
-  width: 55%;
+  width: 60%;
   height: 100%;
   display: flex;
   align-items: center;
@@ -282,8 +533,8 @@ const Boxes = styled.div`
 `
 
 const Box = styled.div`
-  width: 180px;
-  height: 160px;
+  width: 200px;
+  height: 180px;
   background: #FEFCFF;
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

@@ -21,7 +21,7 @@ function Posts() {
     <Container>
       <Head>
         <div></div>
-        <img src='./about3.jpg' />
+        {/* <img src='./about3.jpg' /> */}
       </Head>
       <Body>
         <Wrap>
@@ -95,6 +95,7 @@ const Container = styled.div`
     width: 100%;
     background: var(--main);
     overflow: hidden;
+   
 
 `
 const ContentWrapper = styled.div`
@@ -115,6 +116,7 @@ const Boxes = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 50px 0;
 
 `
 const Post = styled.div`
@@ -127,6 +129,7 @@ const Post = styled.div`
     padding: 20px;
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin: 0 20px;
 
 `
 

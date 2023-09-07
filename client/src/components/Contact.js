@@ -59,12 +59,6 @@ function Contact() {
             </Box>
            </Boxes>
 
-           
-
-           
-            
-
-            <Feedback />
         </Wrap>
 
         

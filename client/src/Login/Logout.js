@@ -6,6 +6,8 @@ function Logout() {
     const handleLogout = () => {
       // Clear the token from local storage or your authentication mechanism
       localStorage.removeItem('token');
+      window.location.reload();
+      window.location.href = "/";
     };
 
   return (
