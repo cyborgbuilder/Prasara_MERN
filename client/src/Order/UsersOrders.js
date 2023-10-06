@@ -42,7 +42,8 @@ const UserOrders = () => {
 
   return (
     <Container>
-      <h2>Your Orders</h2>
+      <Wrap>
+      <h1>Your Existing Orders</h1>
       <ul>
         {userOrders.map(order => (
           <Slot key={order._id}>
@@ -66,6 +67,7 @@ const UserOrders = () => {
         
         ))}
       </ul>
+      </Wrap>
 
       
     </Container>
@@ -80,15 +82,28 @@ const Container = styled.div`
   flex-direction: column;
 
   h1{
+    width: 100%;
     color: var(--sec);
-    font-size: 40px;
+    font-size: 38px;
     margin: 40px 0;
+    text-align: left;
+    border-bottom: 1px solid var(--sec);
   }
 
 `
 
+const Wrap = styled.div`
+  width: 85%;
+
+  ul{
+    padding: 70px 50px;
+  }
+  
+
+`
+
 const Slot = styled.div`
-  width: 1200px;
+  width: 100%;;
   height: 100px;
   border-radius: 15px;
   background: var(--sec);
@@ -103,6 +118,7 @@ const Slot = styled.div`
     margin: 10px 0;
 
   }
+
 
 
 `

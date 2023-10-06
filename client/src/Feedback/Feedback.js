@@ -165,9 +165,10 @@ h4{
 
 p{
   color: #fff;
+  height: 100px;
   padding-left: 20px;
   padding-top: 20px;
-  padding-bottom: 40px;
+
 
 }
 

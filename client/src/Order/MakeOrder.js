@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import Balance, { calculateBalance } from './Blance';
 import PayPalButtonComponent from './PayPalButtonComponenet';
+import MetaPayment from '../Metamask/MetaPaymetnt';
 
 
 const FormContainer = styled.div`
@@ -22,15 +23,33 @@ const StyledDatePicker = styled(DatePicker)`
 
 `
 
-const Heading = styled.h2`
-  font-size: 24px;
-  margin-bottom: 20px;
+const Heading = styled.h1`
+width: 100%;
+color: var(--sec);
+font-size: 30px;
+margin: 40px 0;
+text-align: left;
+border-bottom: 1px solid var(--sec);
 `;
 
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+
+  h1{
+    font-size: 24px;
+    border: 1px solid var(--sec);
+    padding: 5px 14px;
+    border-radius: 15px;
+    box-shadow: 0px 3px 3px -2px rgb(0 0 0 / 20%),
+0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
+    margin-bottom: 40px;
+    color: #fff;
+    background: var(--sec);
+    letter-spacing: 1.2px;
+
+  }
 `;
 
 const Label = styled.label`
@@ -108,7 +127,6 @@ const OrderForm = () => {
   const [ordersPerDay, setOrdersPerDay] = useState({});
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
-  console.log("Submi btn" + submitButtonDisabled)
 
   const handleWaterLevelChange = (selectedWaterLevel) => {
     setWaterLevel(selectedWaterLevel);
@@ -266,16 +284,15 @@ const OrderForm = () => {
     }
   };
 
-   const balanceNew = calculateBalance(waterLevel, chemicalsLevel01, chemicalsLevel02, fabric, pressureLevel, pieces);
-
+   const balanceNew = calculateBalance(waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel, pieces);
    
 
   return (
     <FormContainer>
-      <Heading>Place your Order Here</Heading>
+      <Heading>Place Your New Order Here</Heading>
       <Form onSubmit={handleFormSubmit}>
         <div>
-        <h1>Pieces:</h1>
+        <h1>01. Choose Pieces</h1>
           <RadioContainer>
           <div > 
       <input
@@ -335,7 +352,7 @@ const OrderForm = () => {
           </RadioContainer>
         </div>
         <div>
-          <h1>Water Level:</h1>
+          <h1>02. Choose Water Level</h1>
           <RadioContainer>
         <div>
           <input
@@ -382,7 +399,7 @@ const OrderForm = () => {
 
 
         <div>
-          <h1>Chemical Level I:</h1>
+          <h1>03. Choose Chemical Level I:</h1>
           <RadioContainer>
             <div>
               <input
@@ -433,7 +450,7 @@ const OrderForm = () => {
 
 
         <div>
-          <h1>Chemical Level II(Cleaners/Degreasers):</h1>
+          <h1>04. Choose Chemical Level II(Cleaners/Degreasers):</h1>
           <RadioContainer>
             <div>
               <input
@@ -514,7 +531,7 @@ const OrderForm = () => {
 
 
         <div>
-        <h1>Fabric Type:</h1>
+        <h1>05. Choose Fabric Type</h1>
           <RadioContainer>
             <div>
               <input
@@ -628,7 +645,7 @@ const OrderForm = () => {
 
 
         <div>
-          <h1>Pressure Level:</h1>
+          <h1>06. Choose Pressure Level</h1>
           <RadioContainer>
           <div>
             <input
@@ -690,7 +707,7 @@ const OrderForm = () => {
         </RadioContainer>
         </div>
         <div>
-          <h1>Reservation Date:</h1>
+          <h1>07. Choose Reservation Date</h1>
           <DatePickerContainer>
           <DatePicker
           selected={reservationDate}
@@ -737,6 +754,8 @@ const OrderForm = () => {
                onError={handlePayPalError}
                clientId="AZtDXHO86G3L4UosECS9R-X0JMwlR7B0cgyhR0yhr93jI2jr4YmdGfcrq2DiYGgt_2aMkWtI1axg2fDp"
              />
+
+          <MetaPayment amount={balanceNew} />
        
              
                  </Right>

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Feedback from '../Feedback/Feedback';
 import MakeOrder from '../Order/MakeOrder'
-import PayPalButtonComponent from '../Order/PayPalButtonComponenet';
-import Balance from './Blance'
+import MetaPayments from '../Metamask/MetaPaymetnt'
 import UserOrders from './UsersOrders';
 
 function Order() {
@@ -31,9 +29,14 @@ function Order() {
 
   return (
     <Container>
-      <h1>Welcome, {username}</h1>
-      <MakeOrder />
+      <Head>
+        <div></div>
+        <img src='order.png' />
+      </Head>
+      <h1>Welcome, <span>{username}</span></h1>
       <UserOrders />
+      <MakeOrder />
+      
       
       
     </Container>
@@ -45,7 +48,38 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 100px 0;
+
+  h1{
+    color: var(--sec);
+    font-size: 36px;
+    display: flex;
+    padding-top: 100px ; 
+  }
+  span{
+    display: block;
+    font-family: 'Roboto Mono', monospace;
+  }
  
  `
+
+ const Head = styled.div`
+    width: 100%;
+    height: 75vh;
+
+    div{
+      width: 100%;
+      height: 11vh;
+      background: var(--main);
+    }
+
+    @media only screen and (max-width: 1200px){
+      height: 46vh;
+  }
+
+    img{
+        width: 100%;
+        height: 100%;
+    }
+
+`
 export default Order

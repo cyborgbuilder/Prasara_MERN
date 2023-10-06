@@ -53,14 +53,14 @@ function VideoPage() {
 
 const Container = styled.div`
   width: 100%;
-  max-height: 89vh;
+  max-height: 100vh;
   position: relative;
 
  
 
   img{
     width: 100%;
-    height: 89vh;
+    height: 100vh;
 
     @media only screen and (max-width: 1200px){
       height: 65vh;

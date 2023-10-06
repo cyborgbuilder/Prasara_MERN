@@ -15,7 +15,7 @@ import Blank from './Blank'
 function Home() {
   return (
     <Container>
-      <BlackPage />
+      {/* <BlackPage /> */}
       <VideoPage />
       
       <Welcome />

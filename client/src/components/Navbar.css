@@ -8,22 +8,34 @@
 header {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	height: 11vh;
+	justify-content: center;
+	height: 10vh;
     width: 100%;
 	padding: 0 1rem;
-	background: #fff;
+	background: transparent;
 	color: var(--textColor);
 	position: fixed;
 	top: 0;
 	z-index: 1000;
 	
 }
+.wrapper{
+	width: 95%;
+	height: 90%;
+	margin-top: 5px;
+	border-radius: 15px;
+	
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
 
 header img{
-	width: 5.5%;
+	width: 4.5%;
 	height: 100%;
 }
+
+/*  */
 
 header .conButton{
 	font-size: 18px;

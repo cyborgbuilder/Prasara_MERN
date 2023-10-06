@@ -42,7 +42,8 @@ function Navbar() {
   }, []);
 
   return (
-    <header className={`nav ${show && 'nav_white'}`}>
+    <header >
+      <div className={`wrapper ${show && 'nav_white'}`}>
       <img src="./logo2.png" alt="Logo" />
       <div>
         <nav ref={navRef}>
@@ -72,6 +73,7 @@ function Navbar() {
             <FaBars />
           </button>
         </span>
+      </div>
       </div>
     </header>
   );
