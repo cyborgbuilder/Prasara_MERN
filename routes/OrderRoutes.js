@@ -58,7 +58,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET: Get a specific order by ID
 router.get('/:orderId',  async (req, res) => {
   try {
     const orderId = req.params.orderId;

@@ -3,51 +3,6 @@ import axios from 'axios';
 import Dropzone from 'react-dropzone';
 import styled from 'styled-components';
 
-const FormContainer = styled.div`
-  width: 80%;
-  margin: 100px 0;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  background: #673DE6;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-  h2{
-    margin: 20px 0;
-    text-align: center;
-    font-size: 40px;
-    color: var(--sec);
-  }
-`;
-
-const Input = styled.input`
-  margin-bottom: 20px;
-  padding: 8px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 20px;
-`;
-
-const TextArea = styled.textarea`
-  margin-bottom: 20px;
-  padding: 10px;
-  width: 100%;
-  height: 80px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 20px;
-`;
-
-const DropzoneContainer = styled.div`
-  border: 2px dashed #ccc;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 30px;
-  color: #fff;
-`;
-
 
 
 const UploadForm = () => {
@@ -97,7 +52,9 @@ const UploadForm = () => {
   };
 
   return (
-    <FormContainer>
+    <Container>
+      
+      <FormContainer>
       <h2>Upload into Blog</h2>
       <Input
         type="text"
@@ -124,8 +81,63 @@ const UploadForm = () => {
       </Dropzone>
       <button className='button-28' onClick={handleUpload}>Upload</button>
       <p>{uploadMessage}</p>
-    </FormContainer>
+      </FormContainer>
+    </Container>
   );
 };
+
+const Container = styled.div`
+  width: 100%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+
+`
+const FormContainer = styled.div`
+width: 70%;
+padding: 20px;
+background: #fff;
+border: 2px solid #323232;
+box-shadow: 4px 4px #323232;
+border-radius: 5px;
+
+  h2{
+    margin: 20px 0;
+    text-align: center;
+    font-size: 40px;
+    color: var(--sec);
+  }
+`;
+
+const Input = styled.input`
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+`;
+
+const TextArea = styled.textarea`
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+  height: 350px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 20px;
+`;
+
+const DropzoneContainer = styled.div`
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 30px;
+  color: #fff;
+`;
+
 
 export default UploadForm;

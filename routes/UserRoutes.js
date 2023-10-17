@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/UserModel');
+const UserModel = require('../models/UserModel');
 
 // Register route
 router.post('/register', async (req, res) => {
@@ -85,6 +86,18 @@ router.get('/', async (req, res) => {
       res.status(500).json({ error: 'Error fetching users' });
     }
   });
+
+router.get('/:userId', async (req, res) => {
+  try{
+    const userId = req.params.userId;
+    const user = await UserModel.findById(userId).exec();
+    res.json(user);
+  } catch(error){
+    res.status(500).json({ message: 'Error fetching details'});
+  }
+})
+
+
 
   router.delete("/:id", async (req, res) => {
     try {

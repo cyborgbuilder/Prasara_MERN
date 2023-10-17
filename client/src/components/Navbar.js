@@ -4,7 +4,7 @@ import './Navbar.css';
 import { Link } from 'react-router-dom';
 import Logout from '../Login/Logout';
 
-function Navbar() {
+function Navbar({openModal}) {
   const navRef = useRef();
 
   const isLoggedIn = !!localStorage.getItem('token');
@@ -42,8 +42,8 @@ function Navbar() {
   }, []);
 
   return (
-    <header >
-      <div className={`wrapper ${show && 'nav_white'}`}>
+    <header  >
+      <div className={`wrapper ${show && "nav_white"}`} >
       <img src="./logo2.png" alt="Logo" />
       <div>
         <nav ref={navRef}>
@@ -58,11 +58,12 @@ function Navbar() {
           {isLoggedIn ? (
             <Logout /> // Show Logout button when logged in
           ) : (
-            <Link to="/login">Login</Link>
+            <a  onClick={openModal}>Login</a>
           )}
-          {isLoggedIn && !isAdmin && !isOwner && <Link to='/order'><button className="button-89">Make Order</button></Link>}
+
+          {isLoggedIn && !isAdmin && !isOwner && <Link to='/order'><button class="btn"><i class="animation"></i>Make Order<i class="animation"></i></button></Link>}
           <Link to="/contact">
-            <button className="button-89">Contact Us</button>
+          <button class="btn"><i class="animation"></i>Contact Us<i class="animation"></i></button>
           </Link>
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />

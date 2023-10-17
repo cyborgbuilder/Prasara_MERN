@@ -1,13 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
+import StripeContainer from '../Payment/StripeContainer';
 function About() {
   return (
     <Container>
       <Head>
-        <div></div>
-        <img src='./brands.png' />
+        <img src='https://lh3.googleusercontent.com/u/2/drive-viewer/AITFw-wGjlhrYfbQjtdJXbzM3eW_G7djGSncqVws7lRbPfOiYRtLIqmgntfPkhmN7_olcENzuYN1jW9Mh1rIfV3MSrt36vkI=w1920-h878' />
       </Head>
+
+      <StripeContainer /> 
       <Body>
            <Header>
            <h1>Brands</h1>
@@ -19,6 +21,7 @@ function About() {
            </Detail>
 
            <Wrap>
+            
            <Slot>
                 <Upper>
                     <img className='logo_24' src='https://www.pngall.com/wp-content/uploads/2018/05/Disney-Logo-PNG-Pic.png' />
@@ -418,44 +421,7 @@ function About() {
                     <h1>H / H</h1>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                 </Down>
-            </Slot> */}
-
-            
-
-            
-
-            
-
-            
-
-            
-
-            
-           
-
-            
-
-            
-
-            
-
-            
-
-            
-           
-
-            
-
-            
-            
-
-            
-
-            
-
-            
-
-            
+            </Slot> */}      
 
            </Wrap>
       </Body>
@@ -473,7 +439,7 @@ const Container = styled.div`
 
 const Head = styled.div`
     width: 100%;
-    height: 75vh;
+    height: 80vh;
 
     div{
       width: 100%;
@@ -495,7 +461,7 @@ const Head = styled.div`
 const Body = styled.div`
     width: 100%;
     display: flex;
-    padding: 50px 0;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;

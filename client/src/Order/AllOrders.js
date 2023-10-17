@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
+import './Order.css'
 
 
 const AllOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:9000/order/all-orders', { // Use the correct URL
+    axios.get('http://localhost:9000/order/all-orders', { 
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -23,23 +24,26 @@ const AllOrders = () => {
   };
 
   const handleDeleteOrder = async (orderId) => {
-    try {
-      await axios.delete(`http://localhost:9000/order/${orderId}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
-      setAllOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
-    } catch (error) {
-      console.error('Error deleting order:', error);
+    const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+    if(confirmDelete){
+      try {
+        await axios.delete(`http://localhost:9000/order/${orderId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+        setAllOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
+      } catch (error) {
+        console.error('Error deleting order:', error);
+      }
     }
   };
 
   return (
     <Container>
-      <h1>All Orders</h1>
   {allOrders.map(order => (
-    <Slot key={order._id}>
+    <div class="card" key={order._id}>
+      <a class="card1">
       <div>
       <p>Username: {order.userId ? order.userId.username : 'Unknown User'}</p>
       <p>Name: {order.userId ? order.userId.fullname : 'Unknown User'}</p>
@@ -52,11 +56,20 @@ const AllOrders = () => {
         </div>
         
      <div>
-     <Link to={`/order/${order._id}`}><button className='button-28'>View</button></Link>
-      <button className='button-28' onClick={() => handleDeleteOrder(order._id)}>Delete</button>
+     <Link to={`${order._id}`}><button className='button-d'>View</button></Link>
+      <button className='button-d' onClick={() => handleDeleteOrder(order._id)}>Delete</button>
      </div>
-    </Slot>
+
+     <div class="go-corner" href="#">
+      <div class="go-arrow">
+        →
+      </div>
+    </div>
+      </a>
+    </div>
   ))}
+
+
     </Container>
   );
 };

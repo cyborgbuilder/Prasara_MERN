@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../App.css'
+import { BsArrowRightShort } from "react-icons/bs";
 function Posts() {
 
     const [posts, setPosts] = useState([]);
@@ -20,13 +21,13 @@ function Posts() {
   return (
     <Container>
       <Head>
-        <div></div>
-        {/* <img src='./about3.jpg' /> */}
+
+        <img src='https://wallpapercave.com/wp/wp10161906.jpg' />
       </Head>
       <Body>
         <Wrap>
            <Header>
-           <h1>Blog</h1>
+           <h1>Spotless Solutions for a Cleaner World</h1>
             
            
            </Header>
@@ -75,7 +76,7 @@ function Posts() {
                         : post.content}
                     </p>
                     {post.content.length > 200 && (
-                     <Link to={`/blog/${post._id}`}>See more</Link>
+                     <a><Link to={`/blog/${post._id}`} className='link'>Read More <BsArrowRightShort className='arrow' /></Link></a>
                     )}
                   </ContentWrapper>
                 </Downer>
@@ -118,10 +119,11 @@ const Boxes = styled.div`
     flex-wrap: wrap;
     padding: 50px 0;
 
+
 `
 const Post = styled.div`
-    width: 25%;
-    height: 500px;
+    width: 30%;
+    height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -130,7 +132,9 @@ const Post = styled.div`
     border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin: 0 20px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
+   
 `
 
 const Up = styled.div`
@@ -158,19 +162,35 @@ const Downer = styled.div`
         font-size: 14px;
         line-height: 1.6rem;
         margin-top: 13px;
+        text-align: center;
     }
     h1{
         text-align: center;
+        font-size: 26px;
+    }
+
+    .arrow{
+      font-size: 24px;
+      margin-top: 3px;
+    }
+    a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      margin-top: 20px;
+      font-size: 18px;
+      letter-spacing: 1.6px;
     }
 
 `
 const Head = styled.div`
     width: 100%;
-    height: 75vh;
+    height: 80vh;
 
     div{
       width: 100%;
-      height: 11vh;
+      height: 5vh;
       background: var(--main);
     }
 
@@ -188,7 +208,7 @@ const Head = styled.div`
 const Body = styled.div`
     width: 100%;
     display: flex;
-    padding: 50px 0;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -212,7 +232,7 @@ const Wrap = styled.div`
 const Header = styled.div`
 
 h1{
-  font-size: 70px;
+  font-size: 60px;
   text-align: center;
   color: var(--sec);
 

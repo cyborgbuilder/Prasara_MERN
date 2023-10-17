@@ -29,7 +29,7 @@ function Feedback() {
 
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     background: var(--main);
     display: flex;
     align-items: center;
@@ -64,28 +64,9 @@ const Image = styled.div`
 
 `
 
-const Image_Two = styled.div`
-    width: 100%;
-    position: absolute;
-    bottom: 2%;
-    left: 80%;
-    z-index: 0;
 
-    @media only screen and (max-width: 1200px){
-        left: 50%;
-      }
-
-    img{
-        width: 19%;
-
-        @media only screen and (max-width: 1200px){
-            width: 30%;
-          }
-    }
-
-`
 const Wrap = styled.div`
-    width: 95%;
+    width: 93%;
     height: 100%;
     display: flex;
     

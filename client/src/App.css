@@ -62,7 +62,74 @@ h4{
     transform: translateY(0px);
   }
 }
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--sec);
+  
+}
 
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+  margin-left: 10px;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
 
 
 .button-89 {
@@ -87,6 +154,45 @@ h4{
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+
+.btn {
+  outline: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--sec);
+  min-width: 100px;
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+  box-sizing: border-box;
+  padding: 12px 20px;
+  color: #fff;
+  font-family: 'DM Serif Display', serif;
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: .95;
+}
+
+.btn .animation {
+  border-radius: 100%;
+  animation: ripple 2s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1), 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1), 0 0 0 40px rgba(255, 255, 255, 0.1), 0 0 0 60px rgba(255, 255, 255, 0.1), 0 0 0 80px rgba(255, 255, 255, 0);
+  }
 }
 
 .button-89:hover,
@@ -199,52 +305,6 @@ h4{
   transform: translateY(0);
 }
 
-select {
-  -webkit-appearance:none;
-  -moz-appearance:none;
-  -ms-appearance:none;
-  appearance:none;
-  outline:0;
-  box-shadow:none;
-  border:0!important;
-  background: #fff;
-  background-image: none;
-  padding: 0 .5em;
-  color: #5c6664;
-  cursor:pointer;
-  font-size: 1em;
-  font-family: 'Open Sans', sans-serif;
-}
-select::-ms-expand {
-  display: none;
-}
-.select {
-  position: relative;
-  margin: 0 10px;
-  display: flex;
-  width: 200px;
-  height: 30px;
-  line-height: 1;
-  background: #fff;
-  overflow: hidden;
-  border-radius: .25em;
-}
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 1em;
-  background: #2b2e2e;
-  cursor:pointer;
-  pointer-events:none;
-  transition:.25s all ease;
-}
-.select:hover::after {
-  color: #23b499;
-}
-
-
 input[type="radio"] {
   display: none;
   &:not(:disabled) ~ label {
@@ -257,18 +317,18 @@ input[type="radio"] {
     cursor: not-allowed;
   }
 }
-label {
+.label-o {
   width: 300px;
   height: 350px;
   display: block;
   background: white;
-  border: 2px solid var(--sec);
-  margin: 10px;
+  border: 1px solid black;
+  margin: 10px 20px;
   border-radius: 20px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1rem; 
   text-align: center;
-  box-shadow: 0px 3px 10px -2px hsla(150, 5%, 65%, 0.5);
+  box-shadow: 4px 4px #323232;
   position: relative;
 }
 label p{
@@ -281,11 +341,14 @@ label h2{
   text-transform:capitalize;
 }
 input[type="radio"]:checked + label {
-  background: var(--sec);
-  color: #fff;
-  box-shadow: 0px 0px 20px var(--sec);
+  border: 1px solid var(--sec);
+  color: black;
+  border-bottom: 5px solid var(--sec);
+  background: rgb(223, 225, 235);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
   &::after {
     color: hsla(215, 5%, 25%, 1);
+   
     border: 2px solid var(--sec);
     content: "\f00c";
     font-size: 24px;
@@ -304,22 +367,29 @@ input[type="radio"]:checked + label {
 }
 
 input[type="radio"]:checked + label p{
-  color: #fff;
+  color: black;
 }
 input[type="radio"]#control_05:checked + label {
-  background: red;
-  border-color: red;
-  box-shadow: 0px 2px 5px -2px red;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  border-top: 1px solid red;
+  border-bottom: 5px solid red;
+  background: rgb(223, 225, 235);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
 }
 input[type="radio"]#control_30:checked + label {
-  background: red;
-  border-color: red;
-  box-shadow: 0px 2px 5px -2px red;
+  border-left: 1px solid red;
+  border-right: 1px solid red;
+  border-top: 1px solid red;
+  border-bottom: 5px solid red;
+  background: rgb(223, 225, 235);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 50px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 26px -18px inset;
 }
 .custom-datepicker {
   border: 1px solid red;
 }
 .disabled-button {
+  margin-top: 70px;
   background-color: #ccc;
   cursor: not-allowed; 
   border: none;
@@ -329,6 +399,7 @@ input[type="radio"]#control_30:checked + label {
  
 }
 .enable-button{
+  margin-top: 70px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -337,4 +408,33 @@ input[type="radio"]#control_30:checked + label {
   font-size: 16px;
   cursor: pointer;
   
+}
+
+.FormGroup {
+  width: 600px;
+	margin: 0 15px 20px;
+	padding: 0;
+	border-style: none;
+	background-color: #7795f8;
+	will-change: opacity, transform;
+	box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08), inset 0 1px 0 #829fff;
+	border-radius: 4px;
+}
+
+.FormRow {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-left: 15px;
+	border-top: 1px solid #819efc;
+}
+
+.StripeElement--webkit-autofill {
+	background: transparent !important;
+}
+
+.StripeElement {
+	width: 100%;
+	padding: 11px 15px 11px 0;
 }

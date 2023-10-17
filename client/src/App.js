@@ -19,6 +19,12 @@ import Dashboard from './Dashboard/Dashboard'
 import Order from './Order/Order'
 import OrderDetails from './Order/OrderDetails';
 import OrderDetailsUser from './Order/OrderDetailsUser';
+import ScrollToTop from './components/ScrollToTop';
+import AllOrders from './Order/AllOrders';
+import DashboardHome from './Dashboard/DashboardHome'
+import UploadForm from './Blog/UploadForm';
+import Users from './Dashboard/Users'
+import UserDetails from './Dashboard/UserDetails';
 function App() {
  
   return (
@@ -28,6 +34,7 @@ function App() {
       <BrowserRouter>
       <Navbar />
       <SocialBooth />
+      <ScrollToTop />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
@@ -39,9 +46,15 @@ function App() {
           <Route path="/blog/:postId" element={<Post />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Registration />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/order/:id" element={<OrderDetails />} />
+          <Route path="/dashboard/*" element={<Dashboard />} >
+            <Route index element={<DashboardHome />} />
+            <Route path="order" element={<AllOrders/>} />
+            <Route path="blog" element={<UploadForm/>} />
+            <Route path="order/:id" element={<OrderDetails />} />
+            <Route path="users/:id" element={<UserDetails />} />
+            <Route path="users" element={<Users />} />
+          </Route>
+          <Route path="/order" element={<Order />} />       
           <Route path="/orderUser/:id" element={<OrderDetailsUser />} />
         </Routes>
         <Footer />

@@ -33,7 +33,8 @@ function Order() {
         <div></div>
         <img src='order.png' />
       </Head>
-      <h1>Welcome, <span>{username}</span></h1>
+      <h1>It's great to have you aboard {username}</h1>
+      <Greeting>Thank you for choosing our services and placing your order. We're excited to assist you with your purchase and ensure a seamless and satisfying experience. If you have any questions or need assistance, please don't hesitate to reach out. Welcome to the Prasara family!</Greeting>
       <UserOrders />
       <MakeOrder />
       
@@ -50,15 +51,20 @@ const Container = styled.div`
   flex-direction: column;
 
   h1{
-    color: var(--sec);
+    color: #423077;
     font-size: 36px;
     display: flex;
     padding-top: 100px ; 
   }
-  span{
-    display: block;
-    font-family: 'Roboto Mono', monospace;
-  }
+  
+  
+ 
+ `
+
+ const Greeting = styled.p`
+ padding: 40px 80px;
+    text-align: center;
+    line-height: 2.1rem;
  
  `
 

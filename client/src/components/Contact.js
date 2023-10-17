@@ -12,7 +12,7 @@ function Contact() {
     <Container>
       <Head>
         <div></div>
-        <img src='https://my.pcloud.com/public/u.pcloud.link/publink/show?code=XZzSq3VZYMwEEWkv9o4M2iW3NmM2bStS5EpX' />
+        <img src='/contact.png' />
        
       </Head>
       <Body>

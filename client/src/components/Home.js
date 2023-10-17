@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Contents from './Contents'
 import VideoPage from './VideoPage'
 import styled from 'styled-components'
@@ -11,11 +11,20 @@ import FaceContact from './FaceContact'
 import FaceSustainability from './FaceSustainability'
 import FaceAbout from './FaceAbout'
 import Blank from './Blank'
+import Modal from '../Login/Modal'
+import Navbar from './Navbar'
 
 function Home() {
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [openSignup, setOpenSignup] = useState(false);
   return (
+
+   
     <Container>
       {/* <BlackPage /> */}
+      {modalOpen && <Modal setOpenModal={setModalOpen}   />} 
+      <Navbar openModal={() => setModalOpen(true)} />
       <VideoPage />
       
       <Welcome />

@@ -44,7 +44,8 @@ function Contact() {
       });
 
       setSuccess('User registered successfully');
-      console.log('User registered successfully');
+      window.location.reload();
+      window.location.href = '/';
     } catch (error) {
       setError('Error registering user');
       console.error('Error registering user:', error);
@@ -53,16 +54,19 @@ function Contact() {
 
   return (
     <Container>
-      <Head>
-        <div></div>
-        {/* <img src='./contact.png' alt="Contact" /> */}
-      </Head>
+     <Header>
+            <h1>Sign Up</h1>
+            <p>Register to get full access now :)</p>
+            <img src='https://scribie.com/assets/front/illustrations/Welcome-to-scribie-512x391.svg' />
+          </Header>
       <Body>
         <Wrap>
-          <Header>
-            <h1>Register</h1>
-          </Header>
+          
           <InputContainer>
+         
+
+
+
             <Input
               type="text"
               placeholder="Name"
@@ -101,10 +105,10 @@ function Contact() {
             />
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {success && <SuccessMessage>{success}</SuccessMessage>}
-            <Button onClick={handleRegister}>Register</Button>
+            <Button onClick={handleRegister}>Sign Up</Button>
           </InputContainer>
 
-          <Link to='/login'><a>Login</a></Link>
+          
         </Wrap>
       </Body>
     </Container>
@@ -113,6 +117,7 @@ function Contact() {
 
 const Container = styled.div`
   width: 100%;
+  display: flex;
 `;
 
 const Head = styled.div`
@@ -132,7 +137,7 @@ const Head = styled.div`
 `;
 
 const Body = styled.div`
-  width: 100%;
+  flex: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,6 +156,11 @@ const Wrap = styled.div`
 `;
 
 const Header = styled.div`
+flex: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
   h1 {
     font-size: 70px;
     text-align: center;
@@ -162,14 +172,37 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  
 `;
 
 const Input = styled.input`
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
+width: 400px;
+height: 45px;
+padding: 12px;
+border-radius: 5px;
+margin: 15px 0;
+border: 1.5px solid lightgrey;
+outline: none;
+transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+box-shadow: 0px 0px 20px -18px;
+
+&:hover{
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+    cursor: pointer;
+}
+
+&:active{
+    transform: scale(0.95);
+}
+
+&:focus{
+    border: 2px solid grey;
+}
 `;
 
 const ErrorMessage = styled.p`
@@ -183,13 +216,18 @@ const SuccessMessage = styled.p`
 `;
 
 const Button = styled.button`
-  padding: 10px;
-  margin: 10px;
-  background-color: var(--sec);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+width: 400px;
+height: 45px;
+margin: 10px;
+letter-spacing: 1.2px;;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+outline: none;
+background-color: royalblue;
+color: #fff;
+font-size: 16px;
+transform: .3s ease;
 `;
 
 export default Contact;

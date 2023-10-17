@@ -1,0 +1,64 @@
+.SidebarContainer{
+    width: 275px;
+  height: 100%;
+  background-color: #0E2238;
+  color: #fff;
+  padding-right: 25px;
+}
+
+.SidebarHeading{
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.SidebarList{
+    list-style: none;
+  padding: 0;
+}
+
+.dash_icon{
+    color: #7E8790;
+    font-size: 23px;
+    margin-right: 8px;
+}
+
+.Item {
+    width: 100%;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    border-radius: 40px 999em 999em 40px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+    padding-left: 50px;
+  }
+  
+  .Item.active {
+    background: #0C3549;
+  }
+  
+  .Item:hover li,
+  .Item.active li {
+    color: #00BAC7;
+  }
+  
+  .Item:hover .dash_icon,
+  .Item.active .dash_icon {
+    color: #00BAC7;
+  }
+  
+  .Item a {
+    text-decoration: none;
+  }
+
+.SidebarListItem{
+    margin-bottom: 10px;
+  padding-top: 10px;
+  cursor: pointer;
+  color: #7E8790;
+  font-size: 17px;
+  letter-spacing: 1.05px;
+  font-weight: 500;
+}

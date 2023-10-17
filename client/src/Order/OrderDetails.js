@@ -38,6 +38,9 @@ const OrderDetails = () => {
       // Update the displayed state with the edited state
       setOrder(prevOrder => ({ ...prevOrder, state: editedState }));
       console.log('Order state updated successfully');
+
+      window.location.reload();
+      window.location.href = '/dashboard/order';
     })
     .catch(error => console.error('Error updating order state:', error));
   };
@@ -59,14 +62,14 @@ const OrderDetails = () => {
         <h1>Fabric: <p>{order.fabric ? order.fabric : 'Unknown Fabric'}</p></h1>
         <h1>Pressure Level: <p>{order.pressureLevel ? order.pressureLevel : 'Unknown Pressure Level'}</p></h1>
         <h1>State:
-          <select className='select' value={editedState} onChange={e => handleStateChange(e.target.value)}>
+          <select className='select-2' value={editedState} onChange={e => handleStateChange(e.target.value)}>
             <option value="Washing">Washing</option>
             <option value="Drying">Drying</option>
             <option value="Using Chemical">Using Chemical</option>
             <option value="Completed">Completed</option>
           </select>
         </h1>
-        <button className='button-28' onClick={handleSave}>Save Changes</button>
+        <Button onClick={handleSave}>Save Changes</Button>
       </Bill>
     </Container>
   );
@@ -74,8 +77,9 @@ const OrderDetails = () => {
 
 const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
-  padding-top: 100px;
+  min-height: 90vh;
+
+
   display: flex;
   align-items: center;
   justify-content: center; 
@@ -85,12 +89,28 @@ const Container = styled.div`
 const Bill = styled.div`
   width: 600px;
   padding: 20px;
-  border: 1px solid #673DE6;
-  background: #673DE6;
-  border-radius: 15px;
+  background: #fff;
+  border: 2px solid #323232;
+  box-shadow: 4px 4px #323232;
+  border-radius: 5px;
+
+  .select-2 {
+    width: 100%;
+    min-width: 10ch;
+    max-width: 20ch;
+    margin: 0 20px;
+    border: 1px solid black;
+    border-radius: 0.25em;
+    padding: 0.25em 0.5em;
+    font-size: 17px;
+    cursor: pointer;
+    line-height: 1.1;
+    background-color: #fff;
+    background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+  }
 
   h1{
-    color: #fff;
+    color: #323232;
     font-size: 20px;
     display: flex;
     margin: 20px 0;
@@ -100,8 +120,29 @@ const Bill = styled.div`
   p{
     font-family: 'Roboto Mono', monospace;
     font-size: 16px;
-    color: #fff;
+    color: #666;
     margin: 5px 10px;
   }
+`
+
+const Button = styled.button`
+
+width: 100%;
+height: 45px;
+margin: 10px;
+letter-spacing: 1.2px;;
+border: none;
+border-radius: 8px;
+cursor: pointer;
+outline: none;
+background-color: #00838D;
+color: #fff;
+font-size: 16px;
+transform: .3s ease;
+
+&:hover{
+  background-color: #048C9C;
+}
+
 `
 export default OrderDetails;

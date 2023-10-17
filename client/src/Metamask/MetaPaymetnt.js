@@ -80,15 +80,18 @@ const App = ({amount}) => {
 
 const Container = styled.div`
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     button{
-        width: 100%;
+        width: 71%;
         border-radius: 5px;
         background: #353738;
         border: none;
         outline: none;
         color: #fff;
-        height: 54px;
+        height: 48px;
         font-size: 18px;
         letter-spacing: 1.3px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

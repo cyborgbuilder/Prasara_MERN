@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom';
 function About() {
+    const imgurl = './award.png'
   return (
     <Container>
       <Head>
-        <div></div>
         <img src='./about3.jpg' />
       </Head>
       <Body>
@@ -25,28 +25,44 @@ that reflect our commitment to excellence.</p>
            </Header>
            <Awards>
            <Slot>
-                
+           <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Sri Lanka Entrepreneur of the Year 2002<br></br> (National Gold Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Sri Lanka National Quality Award <br></br>(2006)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>CNCI Achiever of Industrial Excellence (2007)<br></br>Gold Award</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Cleaner Production Award (2007) <br></br>(Raw Material Efficiency)</h1>
                 </Down>
@@ -55,113 +71,175 @@ that reflect our commitment to excellence.</p>
             
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Cleaner Production Award <br></br>(Energy Efficiency)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+                <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Cleaner Production Award <br></br>(2007)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+                <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Occupational Safety & Health Excellence Award<br></br>(2016)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+                 <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>“Wayamba Wijayabhimani” Best Productive Enterprise Award<br></br>(2014)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+                <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>“Wayamba Wijayabhimani” Best Enterprise Award<br></br>(2014)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Thambapanni Abimani Award Hall of Fame<br></br>(2018)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Business Excellence Award (2007) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Industrial Safety Award (2008) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Productive Award(2006) <br></br> Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Provincial Productivity Award(2006) <br></br>Runners Up</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Sri Lanka Entrepreneur of the Year (2000)<br></br>(Provincial Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Sri Lanka Entrepreneur of the Year (2001)<br></br>(National Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Sri Lanka Entrepreneur of the Year (2001)<br></br> (Provincial Silver Award)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>National Safety Award for the safest work place Merit Award (2006)</h1>
                 </Down>
             </Slot>
 
             <Slot>
-                
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
+                </Upper>
                 <Down>
                     <h1>Takai Akimoto 5s Merit Award (2003) </h1>
                 </Down>
             </Slot>
 
             <Slot>
-                <Upper>
-                    {/* <img className='logo_38' src='./award.png' /> */}
+            <Upper>
+                    <img
+                        src={imgurl}
+                    />
                 </Upper>
                 <Down>
                     <h1>Takai Akimoto 5s</h1>
@@ -196,13 +274,7 @@ const Container = styled.div`
 
 const Head = styled.div`
     width: 100%;
-    height: 75vh;
-
-    div{
-      width: 100%;
-      height: 11vh;
-      background: var(--main);
-    }
+    height: 80vh;
 
     @media only screen and (max-width: 1200px){
       height: 46vh;
@@ -218,7 +290,7 @@ const Head = styled.div`
 const Body = styled.div`
     width: 100%;
     display: flex;
-    padding: 50px 0;
+    padding: 0px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -322,29 +394,24 @@ transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 `
 
 const Upper = styled.div`
-    width: 100%;
-    height: 65%;
-    display: flex;
-    align-items: center;
-    jsutify-content: center;
-    
-    background-size: cover;
+width: 39%;
+height: 65%;
+display: flex;
+align-items: center;
+justify-content: center;
 
-    @media only screen and (max-width: 1200px){
-      height: 60%;
-    }
+@media only screen and (max-width: 1200px){
+  height: 60%;
+}
 
-    &:hover{
-        cursor: pointer;
+&:hover{
+    cursor: pointer;
+}
 
+img{
+    width: 90%;
 
-    }
-
-    img{
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-    }
+}
     `
 
 const Down = styled.div`

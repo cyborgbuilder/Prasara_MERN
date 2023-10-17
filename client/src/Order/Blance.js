@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import './Order.css'
 
 // Calculate the balance based on the selected options
 export function calculateBalance(waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel, pieces) {
@@ -67,14 +68,14 @@ const Balance = ({ waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel
   const isValid = validateForm();
 
   return (
-    <div>
+    <Container>
       {isValid ? (
         <Success>
           <h3>Accrued Total for Your Order</h3>
           <p>You may proceed with order submission once the payment has been successfully processed</p>
           <div>
-          <h1>Balance:  </h1>
-          <h1>${calculateBalance(waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel, pieces)}</h1>
+          <h2>Balance:  </h2>
+          <h2>${calculateBalance(waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel, pieces)}</h2>
           </div>
           <div>
           <h4>Discount Rate </h4>
@@ -86,17 +87,26 @@ const Balance = ({ waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel
           <h4>Taxes and Fees</h4>
           <h4>0</h4>
           </div>
+
+          <div>
+          <h4>Setup</h4>
+          <h4>0</h4>
+          </div>
+
+          
           
           
           </Success>
       ) : (
         <Warn>
+
           <p>
           Kindly complete all the required input fields to access the status of your order balance
           </p>
+          
           <div>
-          <h1>Balance:  </h1>
-          <h1>0$</h1>
+          <h2>Balance:  </h2>
+          <h2>0$</h2>
           </div>
           <div>
           <h4>Discount Rate </h4>
@@ -106,6 +116,11 @@ const Balance = ({ waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel
 
           <div>
           <h4>Taxes and Fees</h4>
+          <h4>0</h4>
+          </div>
+
+          <div>
+          <h4>Setup</h4>
           <h4>0</h4>
           </div>
 
@@ -115,17 +130,21 @@ const Balance = ({ waterLevel, chemicalsLevel01, chemicalsLevel02, pressureLevel
         </Warn>
         
       )}
-    </div>
+    </Container>
   );
 };
 
 export default Balance;
+const Container = styled.div`
+  width: 100%;
+  padding: 30px;
 
+`
 const Warn = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
-  //justify-content: center;
   p{
     color: red;
     text-align: center;
@@ -139,7 +158,7 @@ const Warn = styled.div`
   }
 
   h4{
-    color: var(--sec);
+    color: #808080;
     text-decoration: line-through;
 
   }
@@ -152,13 +171,15 @@ const Warn = styled.div`
   }
 `
 
+
+
 const Success = styled.div`
 display: flex;
 align-items: center;
 flex-direction: column;
 //justify-content: center;
 h3{
-  color: var(--sec);
+  color: black;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -174,7 +195,7 @@ h1{
 }
 
 h4{
-  color: var(--sec);
+  color: #808080;
 
 
 }

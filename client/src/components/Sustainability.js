@@ -18,7 +18,7 @@ function Sustainability() {
   return (
     <Container>
       <Head>
-        <div></div>
+
         <img src='./susrainability.png' />
       </Head>
       <Body>
@@ -275,7 +275,7 @@ const Container = styled.div`
 
 const Head = styled.div`
     width: 100%;
-    height: 75vh;
+    height: 88vh;
 
     div{
       width: 100%;
@@ -297,7 +297,6 @@ const Head = styled.div`
 const Body = styled.div`
     width: 100%;
     display: flex;
-    padding: 50px 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -307,7 +306,7 @@ const Body = styled.div`
 
 const Wrap = styled.div`
     width: 95%;
-    padding: 30px 0;
+
     display: flex;
     align-items: center;
     justify-content: center;

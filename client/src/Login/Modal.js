@@ -1,13 +1,25 @@
 import React, { useState } from 'react';
+import "./Modal.css";
 import axios from 'axios';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-function Login() {
-  const [username, setUsername] = useState('');
+function Modal({ isOpen, setOpenModal }) {
+
+    const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
+  const [showSignUpModal, setShowSignUpModal] = useState(false);
+
+  const openSignUpModal = () => {
+    setShowSignUpModal(true);
+    setOpenModal(false); // Close the login modal when opening the sign-up modal
+  };
+
+  const closeSignUpModal = () => {
+    setShowSignUpModal(false);
+  };
   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:9000/user/login', {
@@ -38,12 +50,6 @@ function Login() {
 
       
       console.log('Login successful');
-
-      
-
-    
-
-    
       
       window.location.reload();
       window.location.href = '/';
@@ -52,21 +58,23 @@ function Login() {
       console.error('Error logging in:', error);
     }
   }
-
-
   return (
-    <Container>
-      <Head>
-        <div></div>
-        {/* <img src='./contact.png' alt="Contact" /> */}
-      </Head>
-      <Body>
-        <Wrap>
-          <Header>
-            <h1>Login</h1>
-          </Header>
-          <InputContainer>
-            <Input
+    <div className="modalBackground">
+      <div className="modalContainer">
+        <div className="titleCloseBtn">
+          <button
+            onClick={() => {
+              setOpenModal(false);
+            }}
+          >
+            X
+          </button>
+        </div>
+        <div className="title">
+          <h1>Login</h1>
+        </div>
+        <div className="body">
+        <Input
               type="text"
               placeholder="Username"
               value={username}
@@ -79,81 +87,67 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <ErrorMessage>{error}</ErrorMessage>
-            <button onClick={handleLogin}>Login</button>
-          </InputContainer>
-
-          <Link to='/signup'><a >Register</a></Link>
-        </Wrap>
-      </Body>
-    </Container>
+        </div>
+        <div className="footer">
+          
+          <Button onClick={handleLogin}>Login</Button>
+          <p>OR</p>
+          <Link to='/signup'><a >Create Account?</a></Link>
+        </div>
+      </div>
+      
+      
+    </div>
   );
 }
 
-const Container = styled.div`
-  width: 100%;
-`;
 
-const Head = styled.div`
-  width: 100%;
-  height: 75vh;
 
-  div {
-    width: 100%;
-    height: 11vh;
-    background: var(--main);
-  }
 
-  img {
-    width: 100%;
-    height: 100%;
-  }
-`;
-
-const Body = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #f3f4f5;
-  padding: 50px;
-`;
-
-const Wrap = styled.div`
-  width: 95%;
-  padding: 30px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const Header = styled.div`
-  h1 {
-    font-size: 70px;
-    text-align: center;
-    color: var(--sec);
-  }
-`;
-
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Input = styled.input`
-  padding: 10px;
-  margin: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 300px;
+width: 400px;
+height: 45px;
+padding: 12px;
+border-radius: 5px;
+margin: 15px 0;
+border: 1.5px solid lightgrey;
+outline: none;
+transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+box-shadow: 0px 0px 20px -18px;
+
+&:hover{
+    border: 2px solid lightgrey;
+    box-shadow: 0px 0px 20px -17px;
+    cursor: pointer;
+}
+
+&:active{
+    transform: scale(0.95);
+}
+
+&:focus{
+    border: 2px solid grey;
+}
 `;
 
 const ErrorMessage = styled.p`
   color: red;
   margin: 5px;
+  font-size: 12px;
 `;
 
 
-export default Login;
+const Button = styled.button`
+width: 400px;
+border: none;
+outline: none;
+background-color: royalblue;
+border-radius: 10px;
+color: #fff;
+font-size: 16px;
+transform: .3s ease;
+
+`
+
+export default Modal;

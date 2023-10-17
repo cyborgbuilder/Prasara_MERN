@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-function Post() {
 
-    const { postId } = useParams();
+function Post() {
+  const { postId } = useParams();
   const [post, setPost] = useState({});
 
   useEffect(() => {
@@ -16,28 +16,45 @@ function Post() {
         console.error('Error fetching post:', error);
       });
   }, [postId]);
+
+  const formatContent = (content) => {
+    if (content) {
+      const paragraphsAndLists = content.split('\n').map((item, index) => {
+        if (item.startsWith('* ')) {
+          return <li style={{color: 'black'}} key={index}>{item.substring(2)}</li>;
+        } else {
+          return <p key={index}>{item}</p>;
+        }
+      });
+  
+      return <ul>{paragraphsAndLists.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>)}</ul>;
+    }
+    return null; 
+  };
+
   return (
     <Container>
-      <Head>
-        <div></div>
-        <img src={post.imageUrl} alt="Post" />
-      </Head>
+      
       <Body>
         <Wrap>
+        <Head>
+        <img src={post.imageUrl} alt="Post" />
+      </Head>
           <Header>
             <h1>{post.title}</h1>
-            <p>{post.content}</p> 
+            {formatContent(post.content)}
           </Header>
         </Wrap>
       </Body>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
     width: 100%;
     background: var(--main);
     overflow: hidden;
+    
 
 `
 
@@ -59,6 +76,7 @@ const Head = styled.div`
     img{
         width: 100%;
         height: 100%;
+        border-radius: 15px;
     }
 
 `
@@ -75,7 +93,7 @@ const Body = styled.div`
 `
 
 const Wrap = styled.div`
-    width: 95%;
+    width: 80%;
     padding: 30px 0;
     display: flex;
     align-items: center;
@@ -90,9 +108,11 @@ const Wrap = styled.div`
 const Header = styled.div`
 
 h1{
-  font-size: 70px;
+  font-size: 40px;
   text-align: center;
   color: var(--sec);
+  margin-bottom: 80px;
+  margin-top: 40px;
 
   @media only screen and (max-width: 1200px){
     font-size: 42px;
@@ -102,11 +122,11 @@ h1{
 
 p{
 
-  padding: 50px 0;
+  padding: 10px 0;
 
   line-height: 2.1rem;
   letter-spacing: 2.1px;
-  text-align: center;
+  text-align: left;
 
   @media only screen and (max-width: 1200px){
     font-size: 16px;
@@ -116,6 +136,8 @@ p{
 
   }
 }
+
+
 
 `
 
