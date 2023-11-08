@@ -5,14 +5,16 @@ import { FiMail } from "react-icons/fi";
 import { FaHome } from "react-icons/fa";
 import { FaPhone } from "react-icons/fa";
 import { FaMailBulk } from "react-icons/fa";
-import Feedback from '../Feedback/Feedback'
 import Blank from './Blank'
+
+
+
 function Contact() {
   return (
     <Container>
       <Head>
-        <div></div>
-        <img src='/contact.png' />
+
+          <img src='./contact.png' />
        
       </Head>
       <Body>
@@ -27,7 +29,7 @@ function Contact() {
                 <FaHome className='icons_about'/>
               </Up>
               <Down>
-                  <p>Prasara Washing Plant (Pvt) Ltd</p>
+                  <p>Prasara Washing Plant Dankotuwa<br></br> (Pvt) Ltd</p>
                   <p>Negombo road</p>
                   <p>Thambarawila</p>
                   <p>Waikkala</p>
@@ -39,10 +41,11 @@ function Contact() {
                 <FaPhone className='icons_about'/>
               </Up>
               <Down>
-              <a href='tel:+94114797000'>< BsFillTelephoneFill className='icons_about_2'  /> <h4>(+94) 11 4797000</h4></a>
+              
               <a href='tel:+94768287040'>< BsFillTelephoneFill className='icons_about_2' /> <h4>(+94) 76 8287 040</h4></a>
               <a href='tel:+94768287041'>< BsFillTelephoneFill className='icons_about_2' /> <h4>(+94) 76 8287 041</h4></a>
               <a href='tel:+94768287042'>< BsFillTelephoneFill className='icons_about_2' /> <h4>(+94) 76 8287 042</h4></a>
+              <a href='tel:+94314927863'>< BsFillTelephoneFill className='icons_about_2'  /> <h4>(+94) 31 4927 863</h4></a>
              
 
               </Down>
@@ -59,6 +62,12 @@ function Contact() {
             </Box>
            </Boxes>
 
+           
+
+           
+            
+
+            
         </Wrap>
 
         
@@ -98,10 +107,12 @@ const Box = styled.div`
   width: 27%;
   height: 320px;
   margin: 0 30px ;
-  border-radius: 10px;
-  border: 1px solid var(--sec);
-  border-right: 1px solid var(--sec);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background: linear-gradient(#fff, #fff) padding-box,linear-gradient(145deg, transparent 35%,var(--sec), var(--sec)) border-box;
+border: 2px solid transparent;
+border-radius: 16px;
+margin: 40px ;
+box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,6 +163,7 @@ const Down = styled.div`
 
   p{
     margin: 5px 0;
+    text-align: center;
 
 
     @media only screen and (max-width: 1200px){

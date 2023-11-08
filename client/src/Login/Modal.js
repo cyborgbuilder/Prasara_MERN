@@ -70,8 +70,11 @@ function Modal({ isOpen, setOpenModal }) {
             X
           </button>
         </div>
+        <div className='img-01'>
+          <img src='https://ouch-cdn2.icons8.com/PlBFXytCgIU8CZFusCSNq7rAXCMS4ZsQQ8BXcZ-3J58/rs:fit:368:307/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTU0/LzYwMjcyZTNjLTNj/OTUtNDNlZi05ODA0/LWY2NTgxZDhhZWY2/Ny5wbmc.png' />
+        </div>
         <div className="title">
-          <h1>Login</h1>
+          <h1>Sign in</h1>
         </div>
         <div className="body">
         <Input

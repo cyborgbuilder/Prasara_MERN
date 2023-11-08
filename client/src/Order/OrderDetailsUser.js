@@ -83,24 +83,41 @@ const Container = styled.div`
 `
 
 const Bill = styled.div`
-  width: 600px;
-  padding: 20px;
-  background: var(--sec);
-  border-radius: 15px;
+width: 600px;
+padding: 20px;
+background: #fff;
+border: 2px solid #323232;
+box-shadow: 4px 4px #323232;
+border-radius: 5px;
 
-  h1{
-    color: #fff;
-    font-size: 20px;
-    display: flex;
-    margin: 20px 0;
-    
-  }
+.select-2 {
+  width: 100%;
+  min-width: 10ch;
+  max-width: 20ch;
+  margin: 0 20px;
+  border: 1px solid black;
+  border-radius: 0.25em;
+  padding: 0.25em 0.5em;
+  font-size: 17px;
+  cursor: pointer;
+  line-height: 1.1;
+  background-color: #fff;
+  background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+}
 
-  p{
-    font-family: 'Roboto Mono', monospace;
-    font-size: 16px;
-    color: #fff;
-    margin: 5px 10px;
-  }
+h1{
+  color: #323232;
+  font-size: 20px;
+  display: flex;
+  margin: 20px 0;
+  
+}
+
+p{
+  font-family: 'Roboto Mono', monospace;
+  font-size: 16px;
+  color: #666;
+  margin: 5px 10px;
+}
 `
 export default OrderDetailsUser;

@@ -51,10 +51,10 @@ const Container = styled.div`
   flex-direction: column;
 
   h1{
-    color: #423077;
-    font-size: 36px;
+    color: black;
+    font-size: 39px;
     display: flex;
-    padding-top: 100px ; 
+    padding-top: 100px; 
   }
   
   
@@ -62,7 +62,7 @@ const Container = styled.div`
  `
 
  const Greeting = styled.p`
- padding: 40px 80px;
+    padding: 40px 80px;
     text-align: center;
     line-height: 2.1rem;
  

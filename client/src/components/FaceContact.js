@@ -13,7 +13,7 @@ requests of exploring potential collaborations
 are quite welcome. Our team of experts is
 ready to assist you and provide the
 information you need.</p>
-            <button className="button-89" >Contact us</button>
+<button class="btn"><i class="animation"></i>Contact Us<i class="animation"></i></button>
         </Left>
         <Right>
             {/* <img src='./cnnect.png' /> */}

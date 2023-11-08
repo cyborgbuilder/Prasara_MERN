@@ -17,7 +17,7 @@ function Welcome() {
 
 const Container = styled.div`
     width: 100%;
-    height: 60vh;
+    height: 65vh;
     background: var(--main);
     display: flex;
     align-items: center;

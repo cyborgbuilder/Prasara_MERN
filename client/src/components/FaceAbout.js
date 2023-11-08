@@ -11,7 +11,7 @@ function Feedback() {
         <Right>
             <h1>About Us</h1>
             <p>Since its inception, Prasara Washing Plant (PVT) LTD has consistently progressed and evolved, establishing its position as a leading washing plant in the Apparel Sector. As a testament to our success, we have been accredited with various ISO standards and credited with numerous industry excellence awards. </p>
-            <Link to='/about'><button className="button-90" href="/Contact">Read More</button></Link>
+            <Link to='/about'><button class="btn-2"><i class="animation"></i>Read More<i class="animation"></i></button></Link>
             <Image>
             <img src='https://ik.imagekit.io/y5xyemmwee7/assets/images/v4/bg-circle-white.webp' />
             </Image>
@@ -66,7 +66,7 @@ const Image = styled.div`
 
 
 const Wrap = styled.div`
-    width: 93%;
+    width: 90%;
     height: 100%;
     display: flex;
     
@@ -78,19 +78,19 @@ const Wrap = styled.div`
 `
 const Left = styled.div`
     width: 50%;
-    height: 95%;
+    margin-left: 30px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    //margin: 30px 0;
 
     @media only screen and (max-width: 1200px){
         width: 100%;
       }
 
     img{
-        width: 95%;
+        width: 100%;
         height: 100%;
         border-radius: 5px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -105,7 +105,8 @@ const Left = styled.div`
 
 const Right = styled.div`
     width: 50%;
-    height: 95%;
+    height: 100%;
+    margin-right: 30px;
     padding: 0px 40px;
     background: var(--sec);
     border-radius: 5px;

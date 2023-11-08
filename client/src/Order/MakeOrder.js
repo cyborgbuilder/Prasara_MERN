@@ -8,8 +8,8 @@ import Balance, { calculateBalance } from './Blance';
 import PayPalButtonComponent from './PayPalButtonComponenet';
 import MetaPayment from '../Metamask/MetaPaymetnt';
 import './Order.css'
-import StripeContainer from '../Payment/StripeContainer';
-
+import { BsArrowRightShort } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 const OrderForm = () => {
   const [pieces, setPieces] = useState('');
@@ -25,6 +25,7 @@ const OrderForm = () => {
   const [ordersPerDay, setOrdersPerDay] = useState({});
   const [paymentSuccess, setPaymentSuccess] = useState(false);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(true);
+
 
   const handleWaterLevelChange = (selectedWaterLevel) => {
     setWaterLevel(selectedWaterLevel);
@@ -175,6 +176,8 @@ const OrderForm = () => {
       [formattedDate]: (prevOrders[formattedDate] || 0) + 1
     }));
     window.location.reload();
+      window.location.href = '/';
+    
     } catch (error) {
       console.error('Error submitting order:', error);
       setSubmissionStatus('error');
@@ -191,6 +194,7 @@ const OrderForm = () => {
       <Form onSubmit={handleFormSubmit}>
         <div className='card-03'>
         <h1>01. Choose Pieces</h1>
+        <a><Link to={`/blog/6523852437f4461f0de20df1`} className='link'>Learn About More<BsArrowRightShort className='arrow' /></Link></a>
           <RadioContainer>
           <div > 
       <input
@@ -204,6 +208,7 @@ const OrderForm = () => {
       <label className='label-o' for='control_01'>
         <h2>between 1000 - 5000</h2>
         <p>Select this option for a moderate-sized laundry load, perfect for businesses or individuals with a substantial cleaning need. It offers an efficient and cost-effective solution for fresh and ready-to-use items.</p>
+        
       </label>
       
     </div>
@@ -567,7 +572,7 @@ const OrderForm = () => {
               value="3000 PSI"
               checked={pressureLevel === '3000 PSI'}
               onChange={() => setPressureLevel('3000 PSI')}
-              disabled={waterLevel === 'Low'} // Disable if water level is Low
+              disabled={waterLevel === 'Low'} 
             />
                 <label className='label-o' for='control_24'>
             <h2>3000 PSI</h2>
@@ -605,10 +610,12 @@ const OrderForm = () => {
           </div>
         </RadioContainer>
         </div>
+
         <div className='card-03'>
           <h1>07. Choose Reservation Date</h1>
-          <DatePickerContainer>
+          <DatePickerContainer wrapperClassName='calander'>
           <DatePicker
+          
           selected={reservationDate}
           onChange={date => setReservationDate(date)}
           dateFormat="dd/MM/yyyy"
@@ -622,6 +629,8 @@ const OrderForm = () => {
         
           </DatePickerContainer>
         </div>
+        
+        
 
 
 
@@ -631,6 +640,7 @@ const OrderForm = () => {
         {paymentSuccess ? <Success>
                  <h1>Payment confirmation received. You are now clear to finalize your order. Please select the 'Complete Order Submission' option.</h1>
                    </Success> : (
+                    
                  <Section className='card-03'>
                  <Left>
        
@@ -679,15 +689,19 @@ const OrderForm = () => {
                  </Left>
        
                  <Right>
-                 {/* <PayPalButtonComponent
+
+             
+                 <PayPalButtonComponent
                 
                amount={balanceNew} 
                onSuccess={handlePayPalSuccess}
                onError={handlePayPalError}
                clientId="AZtDXHO86G3L4UosECS9R-X0JMwlR7B0cgyhR0yhr93jI2jr4YmdGfcrq2DiYGgt_2aMkWtI1axg2fDp"
-             /> */}
+             />
 
-           <StripeContainer />
+             <WhiteBackground />
+
+      
 
           <MetaPayment amount={balanceNew} />
        
@@ -696,25 +710,23 @@ const OrderForm = () => {
                </Section>
                 )}
 
-       
-        
-        <button className={submitButtonDisabled ? 'disabled-button' : 'enable-button'} disabled={submitButtonDisabled} type="submit">Complete Order Submission</button>
+        <button type="submit" className={submitButtonDisabled ? 'disabled-button' : 'btn'} style={{width: '100%', fontSize: '17px', backgroundColor: '#00838D',  padding: '12px 0', borderRadius: '6px'}} disabled={submitButtonDisabled} ><i class="animation"></i>Complete Order Submission<i class="animation"></i></button>
       </Form>
 
       
 
-      {submissionStatus === 'success' && (
+      {/* {submissionStatus === 'success' && (
         <p style={{ color: 'green' }}>Order submitted successfully!</p>
       )}
       {submissionStatus === 'error' && (
         <p style={{ color: 'red' }}>{errorMessage}</p>
-      )}
+      )} */}
 
-      {missingInputs.length > 0 && (
+      {/* {missingInputs.length > 0 && (
         <p style={{ color: 'red' }}>
           Please fill in the following missing inputs: {missingInputs.join(', ')}
         </p>
-      )}
+      )} */}
     </FormContainer>
   );
 };
@@ -731,10 +743,11 @@ const FormContainer = styled.div`
   padding-bottom: 100px;
 
   h1{
-    color: #423077;
+    color: black;
     margin-bottom: 20px;
     
   }
+
 `;
 
 
@@ -745,10 +758,26 @@ const Form = styled.form`
 
   h1{
     font-size: 29px;
-    color: #2F1C6A;
-    margin-bottom: 40px;
+    color: black;
     letter-spacing: 1.2px;
 
+  }
+
+  .arrow{
+    font-size: 24px;
+    margin-top: 3px;
+  }
+  a{
+    display: flex;
+    align-items: center;
+    //justify-content: center;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 18px;
+    letter-spacing: 1.3px;
+    color: #00838D;
+    margin-left: 7px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -760,6 +789,8 @@ const RadioContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
+
+  
 
   
 `;
@@ -802,21 +833,34 @@ const Success = styled.div`
 
   width:100%;
 h1{
-  color: var(--sec);
+  color: black;
   margin-bottom: 30px ;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
+  margin-bottom: 60px;
 }
 
 `
 
 const Right = styled.div`
   width: 50%;
-  padding: 80px 50px;
+  padding: 60px 50px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  //justify-content: center;
   flex-direction: column;
+  position: relative;
 
+
+`
+
+const WhiteBackground = styled.div`
+  width: 500px;
+  height: 200px;
+  background: #fff;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 8%;
 
 `

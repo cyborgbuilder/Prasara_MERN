@@ -58,6 +58,36 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/create-payment', async (req, res) => {
+  const { amount, currency, paymentMethodId } = req.body;
+
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount,
+      currency,
+      payment_method: paymentMethodId,
+      confirm: true,
+    });
+
+    // Payment was successful, respond to the client
+    res.json({ clientSecret: paymentIntent.client_secret });
+  } catch (error) {
+    // Payment failed, respond with an error
+    res.status(400).json({ error: error.message });
+  }
+});
+
+router.post('/process-payment', async (req, res) => {
+  try {
+    // Process the payment with Stripe
+
+    // If payment is successful
+    res.status(200).json({ message: 'Payment Successful' });
+  } catch (error) {
+    res.status(500).json({ error: 'Payment Failed' });
+  }
+});
+
 router.get('/:orderId',  async (req, res) => {
   try {
     const orderId = req.params.orderId;

@@ -22,7 +22,7 @@ function Posts() {
     <Container>
       <Head>
 
-        <img src='https://wallpapercave.com/wp/wp10161906.jpg' />
+        <img src='https://assets.vogue.com/photos/61e9c43c8aa98afba69ec2e8/master/w_2560%2Cc_limit/00_story.jpg' />
       </Head>
       <Body>
         <Wrap>

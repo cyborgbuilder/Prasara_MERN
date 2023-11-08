@@ -23,13 +23,11 @@ const UserDetails = () => {
         
       <Bill>
       <Head>
-        <div class="user-picture">
-        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
-            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
-        </svg>
+        <Wrap >
+        <img src='https://ouch-cdn2.icons8.com/2Q-aqq33rczURZlGP-8H0hMMrExx5r084OetlqrCz1g/rs:fit:368:600/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNzgz/LzllMDc5MmQ2LWUx/NGEtNDQ2My1hOGM3/LTYwMzk4NmY5NDIy/ZS5wbmc.png' />
 
             <div class="card-photo"></div>
-    </div>
+    </Wrap>
         </Head>
         <h1>Username:<p> {user.username }</p></h1>
         <h1>Full Name: <p>{user.fullname}</p></h1>
@@ -50,13 +48,25 @@ const Container = styled.div`
   align-items: center;
   justify-content: center; 
 
+
+`
+const Wrap = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+
+  img{
+    width: 20%;
+  }
+
+
 `
 const Head = styled.div`
     width: 100%;
     display: flex;
   align-items: center;
   justify-content: center; 
-  border-bottom: 1px solid black;
   padding: 8px 0;
 
   .user-picture {

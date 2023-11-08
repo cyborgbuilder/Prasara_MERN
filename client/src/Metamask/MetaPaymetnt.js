@@ -85,13 +85,13 @@ const Container = styled.div`
     justify-content: center;
 
     button{
-        width: 71%;
+        width: 81%;
         border-radius: 5px;
         background: #353738;
         border: none;
         outline: none;
         color: #fff;
-        height: 48px;
+        height: 46px;
         font-size: 18px;
         letter-spacing: 1.3px;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

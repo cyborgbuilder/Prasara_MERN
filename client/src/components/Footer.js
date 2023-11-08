@@ -13,7 +13,7 @@ function Footer() {
       <Section>
         <img src='logo1.jpg' />
 
-        <h4>Prasara Washing Plant (Pvt) Ltd</h4>
+        <h4>Prasara Washing Plant Dankotuwa (Pvt) Ltd</h4>
         <p>Negombo road</p>
         <p>Thambarawila</p>
         <p>Waikkala</p>
@@ -31,8 +31,9 @@ function Footer() {
 
       <Section>
         <p>Contacts</p>
-        <a href='tel:+94114797000'>< BsFillTelephoneFill className='icons_footer'  /> <h4>(+94) 11 4797000</h4></a>
+        {/* <a href='tel:+94314927863'>< BsFillTelephoneFill className='icons_footer'  /> <h4>(+94) 31 4927 863</h4></a> */}
         <a href='tel:+94768287040'>< BsFillTelephoneFill className='icons_footer' /> <h4>(+94) 76 8287 040</h4></a>
+        <a href='tel:+94768287041'>< BsFillTelephoneFill className='icons_footer' /> <h4>(+94) 76 8287 041</h4></a>
         <a href='mailto: rec@prasarawashing.com. '>< FiMail className='icons_footer' /> <p>rec@prasarawashing.com. </p></a>
         <a href='mailto: dhammikah@prasarawashing.com'>< FiMail className='icons_footer' /> <p>dhammikah@prasarawashing.com</p></a>
         
@@ -43,7 +44,8 @@ function Footer() {
       <Down>
         <Folder>
           <p>All Rights Recieved 2023</p>
-          <p>Developed by <a>Duomo</a></p>
+          <p>Developed by</p>
+          <a href='https://web.facebook.com/ceriture/'><img className='ceriture' src='./logo.png' /></a>
         </Folder>
       </Down>
 
@@ -186,11 +188,26 @@ flex-direction: column;
 
 @media only screen and (max-width: 1200px){
   text-align: center;
+  width: 70%;
+}
+
+.ceriture{
+  width: 15%;
+  padding-top: 10px;
+
+  @media only screen and (max-width: 1200px){
+    width: 30%;
+  }
 }
 
 p{
   font-size: 13px;
-  margin: 10px 0;
+  margin-top: 10px ;
+  text-align: center;
+
+  @media only screen and (max-width: 1200px){
+    font-size: 11px;
+  }
 }
 
 img{
@@ -199,6 +216,7 @@ img{
 a{
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 15px;
+  text-align: center;
 }
 
 
@@ -207,4 +225,3 @@ a{
 
 
 export default Footer
-

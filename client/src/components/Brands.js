@@ -1,15 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom';
-import StripeContainer from '../Payment/StripeContainer';
+
+
 function About() {
   return (
     <Container>
       <Head>
-        <img src='https://lh3.googleusercontent.com/u/2/drive-viewer/AITFw-wGjlhrYfbQjtdJXbzM3eW_G7djGSncqVws7lRbPfOiYRtLIqmgntfPkhmN7_olcENzuYN1jW9Mh1rIfV3MSrt36vkI=w1920-h878' />
+        <img src='./brands.png' />
       </Head>
 
-      <StripeContainer /> 
+
+
       <Body>
            <Header>
            <h1>Brands</h1>
@@ -20,8 +21,10 @@ function About() {
            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
            </Detail>
 
+
            <Wrap>
             
+          
            <Slot>
                 <Upper>
                     <img className='logo_24' src='https://www.pngall.com/wp-content/uploads/2018/05/Disney-Logo-PNG-Pic.png' />

@@ -59,7 +59,7 @@ const UserOrders = () => {
             
          <div>
          <Link to={`/orderUser/${order._id}`}><button className='button-d'>View</button></Link>
-          <button className='button-d' onClick={() => handleDeleteOrder(order._id)}>Delete</button>
+          <button className='button-d' onClick={() => handleDeleteOrder(order._id)}>Cancel</button>
          </div>
     
          <div class="go-corner" href="#">

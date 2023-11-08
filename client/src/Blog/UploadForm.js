@@ -79,7 +79,7 @@ const UploadForm = () => {
           </DropzoneContainer>
         )}
       </Dropzone>
-      <button className='button-28' onClick={handleUpload}>Upload</button>
+      <button class="btn" style={{width: '100%', fontSize: '18px', backgroundColor: '#00838D',  padding: '12px 0', borderRadius: '6px'}} onClick={handleUpload}><i class="animation"></i>Upload<i class="animation"></i></button>
       <p>{uploadMessage}</p>
       </FormContainer>
     </Container>
@@ -107,7 +107,7 @@ border-radius: 5px;
     margin: 20px 0;
     text-align: center;
     font-size: 40px;
-    color: var(--sec);
+    color: black;
   }
 `;
 

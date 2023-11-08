@@ -63,13 +63,14 @@ const OrderDetails = () => {
         <h1>Pressure Level: <p>{order.pressureLevel ? order.pressureLevel : 'Unknown Pressure Level'}</p></h1>
         <h1>State:
           <select className='select-2' value={editedState} onChange={e => handleStateChange(e.target.value)}>
+            <option value="queue">Queue</option>
             <option value="Washing">Washing</option>
             <option value="Drying">Drying</option>
             <option value="Using Chemical">Using Chemical</option>
             <option value="Completed">Completed</option>
           </select>
         </h1>
-        <Button onClick={handleSave}>Save Changes</Button>
+        <button class="btn" style={{width: '100%', fontSize: '15px', backgroundColor: '#00838D',  padding: '12px 0', borderRadius: '6px'}} onClick={handleSave}><i class="animation"></i>Save Changes<i class="animation"></i></button>
       </Bill>
     </Container>
   );

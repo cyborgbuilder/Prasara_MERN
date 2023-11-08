@@ -12,6 +12,7 @@ function Contact() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
   const handleRegister = async () => {
     try {
@@ -21,6 +22,11 @@ function Contact() {
       // Validation checks
       if (password.length < 6) {
         setError('Password must be at least 6 characters long');
+        return;
+      }
+
+      if (password !== passwordConfirmation) {
+        setError('Passwords do not match');
         return;
       }
 
@@ -57,7 +63,7 @@ function Contact() {
      <Header>
             <h1>Sign Up</h1>
             <p>Register to get full access now :)</p>
-            <img src='https://scribie.com/assets/front/illustrations/Welcome-to-scribie-512x391.svg' />
+            <img src='https://ouch-cdn2.icons8.com/DJgWd0-py9dlSKOmAWxUgSY18UFkSvlwOXNQnRaY2Qc/rs:fit:368:701/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvNTI3/LzRlMTljZjgzLWVl/ZDItNDczZC05MjFh/LTFlY2U2YTE3ZjIx/Ny5wbmc.png' />
           </Header>
       <Body>
         <Wrap>
@@ -102,6 +108,12 @@ function Contact() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+            />
+            <Input
+              type="password"
+              placeholder="Confirm Password" 
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
             />
             {error && <ErrorMessage>{error}</ErrorMessage>}
             {success && <SuccessMessage>{success}</SuccessMessage>}
@@ -164,7 +176,12 @@ flex-direction: column;
   h1 {
     font-size: 70px;
     text-align: center;
-    color: var(--sec);
+    color: black;
+  }
+
+  img{
+    width: 25%;
+    margin-top: 20px;
   }
 `;
 
