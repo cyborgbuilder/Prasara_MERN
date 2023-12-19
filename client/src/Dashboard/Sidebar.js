@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { AiOutlineHome, AiOutlineInbox, AiOutlineHighlight, AiOutlineUser, AiOutlineSetting } from 'react-icons/ai';
+import { AiOutlineAlipay, AiOutlineHome, AiOutlineInbox, AiOutlineHighlight, AiOutlineUser, AiOutlineSetting } from 'react-icons/ai';
 import './Sidebar.css';
 
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState(null);
+
+ 
 
   const handleItemClick = (index) => {
     setActiveItem(index);
@@ -33,9 +35,10 @@ const Sidebar = () => {
       link: '/dashboard/users',
     },
     {
-      icon: <AiOutlineSetting className="dash_icon" />,
-      text: 'Settings',
-    },
+      icon: <AiOutlineAlipay className="dash_icon" />,
+      text: 'Payments',
+      link: '/dashboard/settings',
+    }
   ];
 
   return (
@@ -52,6 +55,7 @@ const Sidebar = () => {
             <Link to={item.link}>
               <li className="SidebarListItem">{item.text}</li>
             </Link>
+            
           </div>
         ))}
       </div>

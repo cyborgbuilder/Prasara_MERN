@@ -60,6 +60,8 @@ const OrderDetailsUser = () => {
         <h1>Fabric: <p>{order.fabric ? order.fabric : 'Unknown Fabric'}</p></h1>
         <h1>Pressure Level: <p>{order.pressureLevel ? order.pressureLevel : 'Unknown Pressure Level'}</p></h1>
         <h1>State: <p>{order.state ? order.state : 'Unknown State'}</p></h1>
+
+       
         
         {/* <button className='button-28' onClick={handleSave}>Save Changes</button> */}
       </Bill>
@@ -67,6 +69,8 @@ const OrderDetailsUser = () => {
       {order.state === "Completed" && (
           <Feedback />
         )}
+
+      
     </Container>
   );
 };

@@ -54,16 +54,14 @@ router.get('/', async (req, res) => {
 
   router.get('/:id', async (req, res) => {
     try {
-      const postId = req.params.id; // Get the post ID from the URL parameter
+      const postId = req.params.id; 
   
-      // Find the post in the database by its ID
       const post = await ImageModel.findById(postId);
   
       if (!post) {
         return res.status(404).json({ error: 'Post not found' });
       }
   
-      // Construct the response object
       const postInfo = {
         _id: post._id,
         username: post.username,
@@ -72,7 +70,6 @@ router.get('/', async (req, res) => {
         imageUrl: `/uploads/${post.image.data}`,
       };
   
-      // Send the post details as the response
       res.json(postInfo);
     } catch (err) {
       console.log(err);

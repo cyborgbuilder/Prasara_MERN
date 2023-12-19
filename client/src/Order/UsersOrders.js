@@ -25,6 +25,8 @@ const UserOrders = () => {
   };
 
   const handleDeleteOrder = async (orderId) => {
+    const confirmDelete = window.confirm("Are you sure you want to Cancel this order?");
+   if(confirmDelete){
     try {
       await axios.delete(`http://localhost:9000/order/${orderId}`, {
         headers: {
@@ -32,16 +34,20 @@ const UserOrders = () => {
         },
       });
       setAllOrders(prevOrders => prevOrders.filter(order => order._id !== orderId));
+      window.location.reload();
+      window.location.href = "/order";
+      
     } catch (error) {
       console.error('Error deleting order:', error);
     }
+   }
   };
 
 
   return (
     <Container>
       <Wrap>
-      <h1>Your Recent Orders</h1>
+      <h1>Previous Orders</h1>
       <ul>
         {userOrders.map(order => (
           <div style={{width: '100%'}} class="card" key={order._id}>
@@ -100,7 +106,7 @@ const Wrap = styled.div`
   width: 80%;
 
   ul{
-    padding: 70px 50px;
+    padding: 30px 50px;
   }
   
 

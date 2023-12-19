@@ -22,6 +22,7 @@ import DashboardHome from './Dashboard/DashboardHome'
 import UploadForm from './Blog/UploadForm';
 import Users from './Dashboard/Users'
 import UserDetails from './Dashboard/UserDetails';
+import Settings from './Dashboard/Settings.js';
 function App() {
  
   return (
@@ -46,6 +47,7 @@ function App() {
             <Route index element={<DashboardHome />} />
             <Route path="order" element={<AllOrders/>} />
             <Route path="blog" element={<UploadForm/>} />
+            <Route path="settings" element={<Settings/>} />
             <Route path="order/:id" element={<OrderDetails />} />
             <Route path="users/:id" element={<UserDetails />} />
             <Route path="users" element={<Users />} />

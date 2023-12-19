@@ -36,7 +36,7 @@ function Contact() {
       }
 
       if (!/^\d{10}$/.test(phoneNumber)) {
-        setError('Phone number must be 10 digits');
+        setError('Phone number invalid format');
         return;
       }
 

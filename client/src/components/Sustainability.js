@@ -269,6 +269,7 @@ const Container = styled.div`
     width: 100%;
     background: var(--main);
     overflow: hidden;
+    padding-bottom: 150px;
 
 `
 

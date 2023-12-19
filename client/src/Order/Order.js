@@ -33,7 +33,7 @@ function Order() {
         <div></div>
         <img src='order.png' />
       </Head>
-      <h1>It's great to have you aboard {username}</h1>
+      <h1 style={{color: 'var(--sec)'}}>It's great to have you aboard {username}</h1>
       <Greeting>Thank you for choosing our services and placing your order. We're excited to assist you with your purchase and ensure a seamless and satisfying experience. If you have any questions or need assistance, please don't hesitate to reach out. Welcome to the Prasara family!</Greeting>
       <UserOrders />
       <MakeOrder />
@@ -54,7 +54,6 @@ const Container = styled.div`
     color: black;
     font-size: 39px;
     display: flex;
-    padding-top: 100px; 
   }
   
   

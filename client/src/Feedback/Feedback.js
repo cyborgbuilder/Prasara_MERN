@@ -12,7 +12,7 @@ const Feedback = () => {
 
   useEffect(() => {
     fetchTodos();
-
+    console.log("Logged User: "+ loggedUser);
     const token = localStorage.getItem('token');
     if (token) {
       try {
@@ -44,7 +44,7 @@ const Feedback = () => {
     const userId = localStorage.getItem('userId');
 
     axios.post('http://localhost:9000/feedback/new', {
-      username: username,
+      username: loggedUser,
       text: newTodo,
       userId: userId,
     })
@@ -69,7 +69,7 @@ const Feedback = () => {
 
   return (
     <Container>
-      <h1>Give us your Feedback</h1>
+      <h2>Give us your Feedback</h2>
 
       <Form onSubmit={handleFormSubmit}>
         <input
@@ -78,21 +78,46 @@ const Feedback = () => {
           onChange={handleInputChange}
           placeholder="Give your feedback"
         />
-        <SubmitButton type="submit">Submit Feedback</SubmitButton>
+        <button class="btn" style={{width: '70%',margin: '25px 0', fontSize: '15px', backgroundColor: '#00838D',  padding: '15px 0', borderRadius: '6px'}} type='submit'><i class="animation"></i>Submit Feedback<i class="animation"></i></button>
       </Form>
       <Slot>
         {data.map((item) => (
-          <FeedbackItem key={item._id}>
-            <h4><FaUserAlt style={{margin: '0 10px'}} />{item.username}</h4>
-            <p>{item.text}</p>
-          <div>
+        
 
-          {item.username === loggedUser && (
-        <button className="button-28" onClick={() => handleDeleteTodo(item._id)}>Delete</button>
+
+
+<div style={{width: '100%'}} class="card" key={item._id}>
+<a class="card1">
+<div>
+<h4><FaUserAlt style={{margin: '0 10px'}} />{item.username}</h4>
+</div> 
+  <div style={{padding: '25px 80px'}}>
+  <p style={{textAlign: 'left'}}>{item.text}</p>
+  </div>
+  <div>
+  </div>
+  
+  
+<div>
+{item.username === loggedUser && (
+        <button className='button-d' onClick={() => handleDeleteTodo(item._id)}>Delete</button>
+
+
+        
+        
       )}
-          
-          </div>
-          </FeedbackItem>
+</div>
+
+<div class="go-corner" href="#">
+<div class="go-arrow">
+  →
+</div>
+</div>
+</a>
+</div>
+
+
+
         ))}
       </Slot>
 
@@ -109,10 +134,9 @@ const Container = styled.div`
   flex-direction: column;
   margin-bottom: 100px ;
 
-  h1 {
+  h2 {
     font-size: 40px;
     text-align: center;
-    color: var(--sec);
     margin: 40px 0;
 
     @media only screen and (max-width: 1200px) {
@@ -122,7 +146,7 @@ const Container = styled.div`
 `;
 
 const Slot = styled.div`
-  width: 50%;
+  width: 80%;
   background: #fff;
   border-radius: 15px;
   d
@@ -151,11 +175,11 @@ const FeedbackItem = styled.div`
 width: 100%;
 height: 200px;
 border-radius: 15px;
-background: var(--sec);
-color: #fff;
+color: black;
 padding: 10px 20px;
 margin: 10px 0;
 box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+border: 1px solid #00838D;
 
 justify-content: space-between;
 
@@ -164,7 +188,7 @@ h4{
 }
 
 p{
-  color: #fff;
+  color: black;
   height: 100px;
   padding-left: 20px;
   padding-top: 20px;
@@ -186,9 +210,9 @@ const Form = styled.form`
   flex-direction: column;
 
   input {
-    width: 50%;
+    width: 80%;
     border: none;
-    height: 80px;
+    height: 150px;
     padding: 25px;
     border-radius: 15px;
     font-size: 18px;
@@ -196,20 +220,6 @@ const Form = styled.form`
   }
 `;
 
-const SubmitButton = styled.button`
-  background-color: var(--sec);
-  color: white;
-  border: none;
-  border-radius: 15px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 50px ;
-  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
 
-  &:hover {
-    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px, rgb(0 0 0 / 73% ) 0px 16px 10px -10px;
-  }
-`;
 
 export default Feedback;

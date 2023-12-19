@@ -46,10 +46,18 @@ const OrderForm = () => {
     }
   };
 
-  const handlePayPalSuccess = (details) => {
+  const handlePayPalSuccess = async (details) => {
     console.log('PayPal payment success:', details);
-    setPaymentSuccess(true);
-    setSubmitButtonDisabled(false);
+
+    try {
+      await axios.post('http://localhost:9000/api/paypal-webhook', details);
+      
+      setPaymentSuccess(true);
+      setSubmitButtonDisabled(false);
+    } catch (error) {
+      console.error('Error sending payment data to server:', error);
+      // Handle error, update state, or show an error message
+    }
   };
 
   const handlePayPalError = (error) => {
@@ -68,35 +76,51 @@ const OrderForm = () => {
     //             ...
   ];
 
+  console.log(PayPalButtonComponent);
+
   const excludedDates = useMemo(() => {
-    const weekends = [];
-    const holidays = sriLankanPublicHolidays.map(date => new Date(date));
-  
+    const holidays = sriLankanPublicHolidays.map((date) => new Date(date));
     const currentDate = new Date();
-    const endDate = new Date(currentDate.getFullYear() + 1, 11, 31); // Up to next year's end
   
-    const disabledDates = Object.keys(ordersPerDay).filter(date => ordersPerDay[date] >= 3);
+    const disabledDates = Object.keys(ordersPerDay).filter((date) => ordersPerDay[date] >= 3);
   
-    for (let date = currentDate; date <= endDate; date.setDate(date.getDate() + 1)) {
-      const formattedDate = format(date, 'yyyy-MM-dd');
-      if (isWeekend(date) || holidays.some(holiday => date.toDateString() === holiday.toDateString()) || disabledDates.includes(formattedDate)) {
-        weekends.push(new Date(date));
+    // Exclude holidays and disabled dates
+    const allExcludedDates = holidays
+      .filter((holiday) => holiday >= currentDate)
+      .concat(disabledDates.map((date) => new Date(date)));
+  
+    // Exclude dates at least 30 days before the current date
+    const datesBeforeCurrentDate = [];
+    for (let i = 1; i <= 30; i++) {
+      const dayBefore = new Date(currentDate);
+      dayBefore.setDate(currentDate.getDate() - i);
+      datesBeforeCurrentDate.push(dayBefore);
+    }
+  
+    // Include weekends after the current date
+    const weekendsAfterCurrentDate = [];
+    for (let i = 1; i <= 30; i++) {
+      const dayAfter = new Date(currentDate);
+      dayAfter.setDate(currentDate.getDate() + i);
+  
+      // Check if the day is a Saturday (6) or Sunday (0)
+      if (dayAfter.getDay() === 0 || dayAfter.getDay() === 6) {
+        weekendsAfterCurrentDate.push(dayAfter);
       }
     }
   
-    return weekends;
+    return allExcludedDates.concat(datesBeforeCurrentDate, weekendsAfterCurrentDate);
   }, [ordersPerDay]);
+  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:9000/orders'); // Update the URL accordingly
+        const response = await axios.get('http://localhost:9000/orders');
         const orders = response.data;
     
-        // Initialize an object to hold the order count per date
         const orderCounts = {};
-    
-        // Iterate through the fetched orders and count orders per date
+
         orders.forEach(order => {
           const formattedDate = format(order.reservationDate, 'yyyy-MM-dd');
           if (orderCounts[formattedDate]) {
@@ -106,7 +130,7 @@ const OrderForm = () => {
           }
         });
     
-        // Update the ordersPerDay state with the order count data
+ 
         setOrdersPerDay(orderCounts);
       } catch (error) {
         console.error('Error fetching order data:', error);
@@ -190,10 +214,10 @@ const OrderForm = () => {
 
   return (
     <FormContainer>
-      <h1>Ready to get started? Place your new order here!</h1>
+      <h1 style={{color: 'var(--sec)', margin: '50px 0'}}>Ready to get started? Place your new order here!</h1>
       <Form onSubmit={handleFormSubmit}>
         <div className='card-03'>
-        <h1>01. Choose Pieces</h1>
+        <h1>01. Choose Volume</h1>
         <a><Link to={`/blog/6523852437f4461f0de20df1`} className='link'>Learn About More<BsArrowRightShort className='arrow' /></Link></a>
           <RadioContainer>
           <div > 
@@ -638,11 +662,13 @@ const OrderForm = () => {
         
 
         {paymentSuccess ? <Success>
-                 <h1>Payment confirmation received. You are now clear to finalize your order. Please select the 'Complete Order Submission' option.</h1>
+                 <h1 style={{fontSize: '23px'}}>Payment confirmation received. You are now clear to finalize your order. Please select the 'Complete Order Submission' option.</h1>
                    </Success> : (
                     
                  <Section className='card-03'>
                  <Left>
+
+               
        
                  
        
@@ -683,6 +709,8 @@ const OrderForm = () => {
          </div>
       </div>
         </Card>
+
+
              
        
              
@@ -797,8 +825,10 @@ const RadioContainer = styled.div`
 
 const Card = styled.div`
   width: 100%;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
 `
 
